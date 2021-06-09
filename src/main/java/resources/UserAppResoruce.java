@@ -1,12 +1,9 @@
 package resources;
 
 import co.edu.unbosque.Final_proyect_prog.services.UserAppService;
-import org.postgresql.util.ReaderInputStream;
-import resources.Pojos.UserAppPOJO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 @Path("/userApp")
 public class UserAppResoruce {
