@@ -15,10 +15,11 @@ public class UserAppResoruce {
     @Produces(MediaType.APPLICATION_JSON)
     public void create(@FormParam("name") String name,
                        @FormParam("email") String email,
-                       @FormParam("role") String role,
+                       @FormParam("role") int role,
                        @FormParam("password") String password) {
-        UserAppPOJO userAppPOJO = new UserAppPOJO(name, email, password, role);
+
+        String[] roles ={"oficial","vet","owner"};
         UserAppService userAppService = new UserAppService();
-        userAppService.createUser(name, password, role, email);
+        userAppService.createUser(name, password, roles[role], email);
     }
 }
