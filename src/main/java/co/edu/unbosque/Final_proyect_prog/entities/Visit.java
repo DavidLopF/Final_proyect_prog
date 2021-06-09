@@ -31,4 +31,48 @@ public class Visit implements Serializable {
         this.type = type;
         this.description = description;
     }
+
+    public Visit() {
+
+    }
+
+    public Integer getVisit_id() {
+        return visit_id;
+    }
+
+    public void setVisit_id(Integer visit_id) {
+        this.visit_id = visit_id;
+    }
+
+    public String getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(String createAt) {
+        this.createAt = createAt;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Vet getVet() {
+        return vet;
+    }
+
+    public void setVet(Vet vet) {
+        this.vet = vet;
+    }
 }
