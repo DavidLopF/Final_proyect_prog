@@ -9,6 +9,10 @@
         <class>co.edu.unbosque.Final_proyect_prog.entities.UserApp</class>
         <class>co.edu.unbosque.Final_proyect_prog.entities.Vet</class>
         <class>co.edu.unbosque.Final_proyect_prog.entities.Oficial</class>
+        <class>co.edu.unbosque.Final_proyect_prog.entities.Owner</class>
+        <class>co.edu.unbosque.Final_proyect_prog.entities.Pet</class>
+        <class>co.edu.unbosque.Final_proyect_prog.entities.PetCase</class>
+        <class>co.edu.unbosque.Final_proyect_prog.entities.Visit</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect"/>
