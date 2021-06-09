@@ -15,4 +15,28 @@ public class Oficial implements Serializable {
     @Column(name = "name")
     private String name;
 
+    public Oficial(UserApp userApp, String name) {
+        this.userApp = userApp;
+        this.name = name;
+    }
+
+    public Oficial() {
+
+    }
+
+    public UserApp getUserApp() {
+        return userApp;
+    }
+
+    public void setUserApp(UserApp userApp) {
+        this.userApp = userApp;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
