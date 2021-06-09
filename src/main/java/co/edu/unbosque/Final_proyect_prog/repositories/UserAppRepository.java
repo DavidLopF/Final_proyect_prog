@@ -12,4 +12,6 @@ public interface UserAppRepository {
 
     List<UserApp> findAll();
 
+    void save(UserApp userApp);
+
 }

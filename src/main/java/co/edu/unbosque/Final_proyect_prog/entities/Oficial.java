@@ -9,7 +9,6 @@ public class Oficial implements Serializable {
 
     @Id
     @OneToOne
-    @JoinColumn(name = "user_name")
     private UserApp userApp;
 
     @Column(name = "name")
