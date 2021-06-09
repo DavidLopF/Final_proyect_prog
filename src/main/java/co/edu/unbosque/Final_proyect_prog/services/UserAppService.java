@@ -1,19 +1,23 @@
 package co.edu.unbosque.Final_proyect_prog.services;
 
 import co.edu.unbosque.Final_proyect_prog.entities.Oficial;
+import co.edu.unbosque.Final_proyect_prog.entities.Owner;
 import co.edu.unbosque.Final_proyect_prog.entities.UserApp;
 import co.edu.unbosque.Final_proyect_prog.repositories.OficiaImp;
+import co.edu.unbosque.Final_proyect_prog.repositories.OwnerImp;
 import co.edu.unbosque.Final_proyect_prog.repositories.UserAppImp;
 import co.edu.unbosque.Final_proyect_prog.repositories.UserAppRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.swing.*;
 
 public class UserAppService {
 
     private UserAppImp userAppRepository;
     private OficiaImp oficiaImp;
+    private OwnerImp ownerImp;
 
     public void createUser(String userName, String password, String role, String email) {
 
@@ -27,6 +31,9 @@ public class UserAppService {
         if (newUserApp.getRole().equals("oficial")) {
             oficiaImp = new OficiaImp(entityManager);
             oficiaImp.save(new Oficial(newUserApp, "oficial david"));
+        }else if(newUserApp.getRole().equals("owner")){
+            ownerImp = new OwnerImp(entityManager);
+            ownerImp.save(new Owner(userName,1,"Sergio el makio","Solo 80 papa","Engativa"));
         }
         entityManager.close();
         entityManagerFactory.close();
