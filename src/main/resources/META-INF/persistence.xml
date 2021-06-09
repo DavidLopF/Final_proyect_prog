@@ -7,8 +7,6 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <jta-data-source>java:/4Citycens_final_proyect</jta-data-source>
         <class>co.edu.unbosque.Final_proyect_prog.entities.UserApp</class>
-        <class>co.edu.unbosque.Final_proyect_prog.entities.Vet</class>
-        <class>co.edu.unbosque.Final_proyect_prog.entities.Oficial</class>
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL10Dialect"/>
