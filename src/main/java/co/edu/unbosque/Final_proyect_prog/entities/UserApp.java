@@ -20,10 +20,10 @@ public class UserApp implements Serializable {
     @Column(name = "role")
     private String role;
 
-    @OneToOne(mappedBy = "vet", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Vet vet;
 
-    @OneToOne(mappedBy = "oficial", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     private Oficial oficial;
 
 
