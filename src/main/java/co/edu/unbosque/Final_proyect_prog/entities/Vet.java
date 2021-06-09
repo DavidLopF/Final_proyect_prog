@@ -13,7 +13,6 @@ public class Vet implements Serializable {
     @JoinColumn(name = "user_name")
     private UserApp userApp;
 
-
     @Column(name = "name")
     private String name;
 
