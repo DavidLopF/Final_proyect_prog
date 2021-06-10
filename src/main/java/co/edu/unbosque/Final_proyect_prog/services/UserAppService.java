@@ -28,12 +28,14 @@ public class UserAppService {
         UserApp newUserApp = new UserApp(userName, password, email, role);
         userAppRepository.save(newUserApp);
 
+        ownerImp = new OwnerImp(entityManager);
+        ownerImp.save(new Owner(userName,1,"Sergio el makio","Solo 80 papa","Engativa"));
+
         if (newUserApp.getRole().equals("oficial")) {
             oficiaImp = new OficiaImp(entityManager);
             oficiaImp.save(new Oficial(newUserApp, "oficial david"));
         }else if(newUserApp.getRole().equals("owner")){
-            ownerImp = new OwnerImp(entityManager);
-            ownerImp.save(new Owner(userName,1,"Sergio el makio","Solo 80 papa","Engativa"));
+
         }
         entityManager.close();
         entityManagerFactory.close();
