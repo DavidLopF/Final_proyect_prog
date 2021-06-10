@@ -11,6 +11,8 @@ import co.edu.unbosque.Final_proyect_prog.repositories.UserAppRepository;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.swing.*;
 
 public class UserAppService {
@@ -28,12 +30,15 @@ public class UserAppService {
         UserApp newUserApp = new UserApp(userName, password, email, role);
         userAppRepository.save(newUserApp);
 
+
         if (newUserApp.getRole().equals("oficial")) {
             oficiaImp = new OficiaImp(entityManager);
             oficiaImp.save(new Oficial(newUserApp, "oficial david"));
         }else if(newUserApp.getRole().equals("owner")){
             ownerImp = new OwnerImp(entityManager);
-            ownerImp.save(new Owner(userName,1,"Sergio el makio","Solo 80 papa","Engativa"));
+            Owner newOwner = new Owner(userName);
+            ownerImp.save(newOwner);
+
         }
         entityManager.close();
         entityManagerFactory.close();
