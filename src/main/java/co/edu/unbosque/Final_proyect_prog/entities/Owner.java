@@ -30,9 +30,8 @@ public class Owner implements Serializable {
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pet> pets;
 
-    public Owner(String username, Integer person_id, String name, String address, String neighborhood) {
+    public Owner(String username, String name, String address, String neighborhood) {
         this.username = username;
-        this.person_id = person_id;
         this.name = name;
         this.address = address;
         this.neighborhood = neighborhood;

@@ -10,7 +10,7 @@ public class Pet implements Serializable {
     @Id
     @Column(name = "Name_id")
     private Integer name_id;
-    @Column(name = "Microship")
+    @Column(name = "Microship", unique = true)
     private long microchip;
     @Column(name = "Name")
     private String name;

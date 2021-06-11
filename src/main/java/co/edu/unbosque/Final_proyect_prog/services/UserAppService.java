@@ -30,7 +30,7 @@ public class UserAppService {
         UserApp newUserApp = new UserApp(userName, password, email, role);
         userAppRepository.save(newUserApp);
 
-
+        /*
         if (newUserApp.getRole().equals("oficial")) {
             oficiaImp = new OficiaImp(entityManager);
             oficiaImp.save(new Oficial(newUserApp, "oficial david"));
@@ -39,7 +39,7 @@ public class UserAppService {
             Owner newOwner = new Owner(userName);
             ownerImp.save(newOwner);
 
-        }
+        }*/
         entityManager.close();
         entityManagerFactory.close();
 

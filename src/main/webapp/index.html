@@ -5,16 +5,21 @@
     <title>test</title>
 </head>
 <body>
-<form action="api/userApp" method="post">
+<form action="api/owners" method="post">
+    <label for="username">Username: </label>
+    <input name="username" id="username" type="text" required>
+
+    <label for="password">Password: </label>
+    <input name="password" id="password" type="password" required>
+
     <label for="email">email: </label>
-    <input name="email" id="email" type="text" required>
+    <input name="email" id="email" type="email" required>
 
     <label for="name">name: </label>
     <input name="name" id="name" type="text" required>
 
-    <label for="password">pass: </label>
-    <input name="password" id="password" type="password" required>
-    |
+    <label for="address">Address: </label>
+    <input name="address" id="address" type="text" required>
     <label for="role">role: </label>
     <select name="role" id="role">
         <option value="0">Oficial</option>
@@ -22,18 +27,9 @@
         <option value="2">Owner</option>
     </select>
 
-    <input type="submit">
-</form>
-
-<form action="api/userApp" method="post">
-    <label for="name2">name: </label>
-    <input name="name2" id="name2" type="text" required>
-
-    <label for="address">Address: </label>
-    <input name="address" id="address" type="text" required>
-
     <label for="neight">Neight: </label>
     <input name="neight" id="neight" type="text" required>
+    <br>
     <input type="submit">
 </form>
 

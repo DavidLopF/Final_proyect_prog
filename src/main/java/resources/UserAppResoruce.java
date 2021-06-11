@@ -22,6 +22,7 @@ public class UserAppResoruce {
         UserAppService userAppService = new UserAppService();
         userAppService.createUser(name, password, roles[role], email);
         NewCookie cookie = new NewCookie("username",name);
+
         return Response.ok("OK").cookie(cookie).build();
     }
 }
