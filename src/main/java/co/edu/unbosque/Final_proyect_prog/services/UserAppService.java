@@ -35,10 +35,10 @@ public class UserAppService {
         if (newUserApp.getRole().equals("oficial")) {
             oficiaImp = new OficiaImp(entityManager);
             oficiaImp.save(new Oficial(newUserApp, "oficial david"));
-        }else if(newUserApp.getRole().equals("owner")){
+        } else if (newUserApp.getRole().equals("owner")) {
             ownerImp = new OwnerImp(entityManager);
-            Owner newOwner = new Owner(userName);
-            ownerImp.save(newOwner);
+            // Owner newOwner = new Owner();
+            //ownerImp.save(newOwner);
 
         }
         entityManager.close();
