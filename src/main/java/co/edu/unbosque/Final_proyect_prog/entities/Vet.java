@@ -2,6 +2,7 @@ package co.edu.unbosque.Final_proyect_prog.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "vet")
@@ -19,6 +20,13 @@ public class Vet implements Serializable {
 
     @Column(name = "neigborhood")
     private String neigborhood;
+
+    @OneToMany(mappedBy = "vet", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Visit> visits;
+
+    @Column(name = "vet:id", unique = true)
+    @GeneratedValue
+    private Integer vetId;
 
     public Vet(UserApp userApp, String name, String address, String neigborhood) {
         this.userApp = userApp;

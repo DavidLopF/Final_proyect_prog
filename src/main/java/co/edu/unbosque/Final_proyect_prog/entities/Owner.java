@@ -8,8 +8,8 @@ import java.util.List;
 @Table(name = "Owner")
 public class Owner implements Serializable {
     @Id
-    @Column(name = "user_name")
-    private String username;
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    private UserApp userApp;
 
     @GeneratedValue
     @Column(name = "Person_id")
@@ -24,22 +24,26 @@ public class Owner implements Serializable {
     @Column(name = "Neighborhood")
     private String neighborhood;
 
-    /*@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    private UserApp userApp;*/
+
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pet> pets;
 
-    public Owner(String username, Integer person_id, String name, String address, String neighborhood) {
-        this.username = username;
-        this.person_id = person_id;
-        this.name = name;
-        this.address = address;
-        this.neighborhood = neighborhood;
+
+    public UserApp getUserApp() {
+        return userApp;
     }
 
-    public Owner(String username){
-        this.username = username;
+    public void setUserApp(UserApp userApp) {
+        this.userApp = userApp;
+    }
+
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
     }
 
     public Owner(){
@@ -50,13 +54,7 @@ public class Owner implements Serializable {
         pets.add(p);
     }
 
-    public String getUsername() {
-        return username;
-    }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
 
     public Integer getPerson_id() {
         return person_id;
