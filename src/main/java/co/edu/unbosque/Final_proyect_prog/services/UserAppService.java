@@ -21,7 +21,7 @@ public class UserAppService {
     private OficiaImp oficiaImp;
     private OwnerImp ownerImp;
 
-    public void createUser(String userName, String password, String role, String email) {
+    public void createUser(String userName, String password, String email, String role) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
