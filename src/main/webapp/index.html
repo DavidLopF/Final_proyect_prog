@@ -1,41 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
-<form action="api/userApp" method="post">
-    <label for="email">email: </label>
-    <input name="email" id="email" type="text" required>
+
+<form action="api/userApp" id="form_user" method="post">
 
     <label for="name">name: </label>
     <input name="name" id="name" type="text" required>
+
+    <label for="email">email: </label>
+    <input name="email" id="email" type="text" required>
 
     <label for="password">pass: </label>
     <input name="password" id="password" type="password" required>
     |
     <label for="role">role: </label>
     <select name="role" id="role">
-        <option value="0">Oficial</option>
-        <option value="1">Vet</option>
-        <option value="2">Owner</option>
+        <option value="oficial">Oficial</option>
+        <option value="vet">Vet</option>
+        <option value="owner">Owner</option>
     </select>
-
-    <input type="submit">
+    <input type="button" id="send_data" value="Enviar" onclick="sendData()">
 </form>
 
-<form action="api/userApp" method="post">
-    <label for="name2">name: </label>
-    <input name="name2" id="name2" type="text" required>
+<script TYPE="text/javascript" src="Js/SignIn.js"></script>
 
-    <label for="address">Address: </label>
-    <input name="address" id="address" type="text" required>
-
-    <label for="neight">Neight: </label>
-    <input name="neight" id="neight" type="text" required>
-    <input type="submit">
-</form>
 
 </body>
 </html>
