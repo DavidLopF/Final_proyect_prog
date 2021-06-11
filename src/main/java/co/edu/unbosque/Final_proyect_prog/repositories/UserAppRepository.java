@@ -14,4 +14,6 @@ public interface UserAppRepository {
 
     void save(UserApp userApp);
 
+    Optional<UserApp> findByUsername(String username);
+
 }

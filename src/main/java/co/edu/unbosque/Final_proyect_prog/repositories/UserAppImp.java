@@ -25,6 +25,12 @@ public class UserAppImp implements UserAppRepository {
         return null;
     }
 
+    @Override
+    public Optional<UserApp> findByUsername(String username) {
+        UserApp user = entityManager.find(UserApp.class, username);
+        return user != null ? Optional.of(user) : Optional.empty();
+    }
+
 
     @Override
     public void save(UserApp user) {
