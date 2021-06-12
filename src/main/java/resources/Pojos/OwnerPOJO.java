@@ -1,4 +1,4 @@
-package co.edu.unbosque.Final_proyect_prog.services;
+package resources.Pojos;
 
 public class OwnerPOJO {
 
