@@ -21,7 +21,6 @@ public class Visit {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "vet_id")
     private Vet vet;
 
     public Visit() {

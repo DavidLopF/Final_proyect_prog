@@ -1,6 +1,6 @@
 package resources;
 
-import co.edu.unbosque.Final_proyect_prog.services.OwnerPOJO;
+import resources.Pojos.OwnerPOJO;
 import co.edu.unbosque.Final_proyect_prog.services.UserAppService;
 import resources.Pojos.UserAppPOJO;
 
