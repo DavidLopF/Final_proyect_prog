@@ -1,19 +1,14 @@
 package co.edu.unbosque.Final_proyect_prog.services;
 
 import co.edu.unbosque.Final_proyect_prog.entities.Oficial;
-import co.edu.unbosque.Final_proyect_prog.entities.Owner;
 import co.edu.unbosque.Final_proyect_prog.entities.UserApp;
 import co.edu.unbosque.Final_proyect_prog.repositories.OficiaImp;
 import co.edu.unbosque.Final_proyect_prog.repositories.OwnerImp;
 import co.edu.unbosque.Final_proyect_prog.repositories.UserAppImp;
-import co.edu.unbosque.Final_proyect_prog.repositories.UserAppRepository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletResponse;
-import javax.swing.*;
 import java.util.Optional;
 
 public class UserAppService {
@@ -61,7 +56,7 @@ public class UserAppService {
         // Validating if credentials provided by the user are valid
         // If success, return the user role
         if (user.isPresent()) {
-            if (user.get().getUserName().equals(username) && user.get().getPassword().equals(password)) {
+            if (user.get().getUser_name().equals(username) && user.get().getPassword().equals(password)) {
                 return Optional.of(user.get().getRole());
             }
         }

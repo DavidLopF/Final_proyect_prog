@@ -7,9 +7,8 @@ public class OwnerPOJO {
     private String address;
     private String neigboorhood;
 
-    public OwnerPOJO(String name, Integer person_id, String address, String neigboorhood) {
+    public OwnerPOJO(String name, String address, String neigboorhood) {
         this.name = name;
-        this.person_id = person_id;
         this.address = address;
         this.neigboorhood = neigboorhood;
     }

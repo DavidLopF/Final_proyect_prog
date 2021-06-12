@@ -24,11 +24,15 @@ public class Owner implements Serializable {
     @Column(name = "Neighborhood")
     private String neighborhood;
 
-
-
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pet> pets;
 
+    public Owner(UserApp userApp, String name, String address, String neighborhood) {
+        this.userApp = userApp;
+        this.name = name;
+        this.address = address;
+        this.neighborhood = neighborhood;
+    }
 
     public UserApp getUserApp() {
         return userApp;

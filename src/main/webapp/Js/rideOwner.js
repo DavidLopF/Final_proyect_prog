@@ -1,12 +1,14 @@
-/*function sendDataOwner() {
+function sendDataOwner() {
     var http = new XMLHttpRequest()
-
+    var name = document.getElementById("usernm").value
     var email = document.getElementById("email").value
-    var name = document.getElementById("name").value
+    var address = document.getElementById("Adress").value
+    var neighborhood = document.getElementById("neighborhood").value
+    var username = document.getElementById("username").value
     var passsword = document.getElementById("password").value
-    var role = document.getElementById("role").value
+    alert("El usuario es "+username+ " La clave es "+passsword)
 
-    var url = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/' + name + '/' + passsword + "/" + email + '/' + role +'/sergio/address/la 80'
+    var url = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/' + username + '/' + name + "/" + email + '/' + address +'/'+neighborhood+'/'+passsword
 
 
     http.open("POST", url, true)
@@ -17,7 +19,7 @@
             alert(http.responseText)
         } else if (http.readyState == 4 && http.status == 201) {
             alert(http.responseText)
-            window.location.href = "testCookie.html"
+           // window.location.href = "testCookie.html"
         } else if (http.readyState == 4 && http.status == 400) {
             alert('Error de peticion...')
         }
@@ -31,5 +33,4 @@
     }))
 
 
-}*/
-
+}

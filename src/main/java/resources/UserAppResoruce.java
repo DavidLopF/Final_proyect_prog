@@ -32,7 +32,7 @@ public class UserAppResoruce {
     }
 
 
-    @POST
+   /* @POST
     @Path("{userName}/{password}/{email}/{role}/{name}/{address}/{neighboorhod}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response createOwner(@PathParam("userName") String userName,
@@ -45,7 +45,7 @@ public class UserAppResoruce {
 
         OwnerPOJO ownerPOJO = new OwnerPOJO(name, 200, address, barrio);
         return Response.status(Response.Status.CREATED).entity(ownerPOJO).build();
-    }
+    }*/
 
 
 }

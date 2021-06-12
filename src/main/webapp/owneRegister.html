@@ -41,32 +41,32 @@
         <form action="/action_page.php" style="max-width:500px;margin:auto">
           <div class="input-container">
             <i class="fa fa-user icon"></i>
-            <input class="input-field" type="text" placeholder="Name and last name" name="usrnm">
+            <input class="input-field" type="text" placeholder="Name and last name" id="usernm" name="usrnm">
           </div>
         
           <div class="input-container">
             <i class="fa fa-envelope icon"></i>
-            <input class="input-field" type="text" placeholder="Email" name="email">
+            <input class="input-field" type="text" placeholder="Email" id="Email" name="email">
           </div>
 
           <div class="input-container">
             <i class="fas fa-map-marked-alt icon"></i>
-            <input class="input-field" type="text" placeholder="Adress" name="Adress">
+            <input class="input-field" type="text" placeholder="Adress" id="Adress" name="Adress">
           </div>
 
           <div class="input-container">
             <i class="fas fa-location-arrow icon"></i>
-            <input class="input-field" type="text" placeholder="Neighborhood" name="neighborhood">
+            <input class="input-field" type="text" placeholder="Neighborhood" id="neighborhood" name="neighborhood">
           </div>
 
           <div class="input-container">
             <i class="fas fa-user-alt icon"></i>
-            <input class="input-field" type="text" placeholder="Username" name="username">
+            <input class="input-field" type="text" placeholder="Username" id="username" name="username">
           </div>
           
           <div class="input-container">
             <i class="fas fa-lock-open icon"></i>
-            <input class="input-field" type="password" placeholder="Password" name="pwrd">
+            <input class="input-field" type="password" placeholder="Password" id="pwrd" name="pwrd">
           </div>
 
           <div class="input-container">
@@ -74,7 +74,7 @@
             <input class="input-field" type="password" placeholder="Confirm password" name="Confirm">
           </div>
         
-          <button type="submit" class="btn">Send</button>
+          <button type="submit" onclick="sendDataOwner()" class="btn">Send</button>
         </form>
       </div>
     </section>
@@ -107,6 +107,7 @@
       </div>
     </div>
     <script src="j=Js/popup.js"></script>
+    <script src="Js/rideOwner.js"></script>
 
 </body>
 </html>

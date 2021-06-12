@@ -9,7 +9,7 @@ public class UserApp implements Serializable {
 
     @Id
     @Column(name = "user_name")
-    private String userName;
+    private String user_name;
 
     @Column(name = "password")
     private String password;
@@ -22,7 +22,7 @@ public class UserApp implements Serializable {
 
 
     public UserApp(String userName, String password, String email, String role) {
-        this.userName = userName;
+        this.user_name = userName;
         this.password = password;
         this.email = email;
         this.role = role;
@@ -33,12 +33,12 @@ public class UserApp implements Serializable {
     }
 
 
-    public String getUserName() {
-        return userName;
+    public String getUser_name() {
+        return user_name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUser_name(String userName) {
+        this.user_name = userName;
     }
 
     public String getPassword() {
