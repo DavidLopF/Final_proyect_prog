@@ -14,13 +14,15 @@ public class VetRepositoryImp implements VetRepository {
 
 
     @Override
-    public void save(Vet vet) {
+    public boolean save(Vet vet) {
         try {
             entityManager.getTransaction().begin();
             entityManager.persist(vet);
             entityManager.getTransaction().commit();
+            return true;
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
         }
 
     }

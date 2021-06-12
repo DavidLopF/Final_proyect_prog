@@ -21,14 +21,9 @@ public class Vet implements Serializable {
     @Column(name = "neighborhood")
     private String neighborhood;
 
-    @Column(name = "vet_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int vetId;
 
     @OneToMany(mappedBy = "vet", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Visit> visits;
-
-
 
 
     public Vet(UserApp userApp, String name, String address, String neighborhood) {
@@ -36,6 +31,10 @@ public class Vet implements Serializable {
         this.name = name;
         this.address = address;
         this.neighborhood = neighborhood;
+    }
+
+    public Vet() {
+
     }
 
     public UserApp getUserApp() {
@@ -78,11 +77,6 @@ public class Vet implements Serializable {
         this.visits = visits;
     }
 
-    public Integer getVetId() {
-        return vetId;
-    }
 
-    public void setVetId(Integer vetId) {
-        this.vetId = vetId;
-    }
+
 }

@@ -18,6 +18,7 @@ public class VetService {
 
     public boolean createVet(UserAppPOJO user,
                              String name, String addres, String neighborhood) {
+        boolean flag = false;
 
         if (!user.getUserName().isEmpty() && !user.getPassword().isEmpty()
                 && !user.getEmail().isEmpty() && !user.getRole().isEmpty()
@@ -25,19 +26,18 @@ public class VetService {
 
             EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
             EntityManager entityManager = entityManagerFactory.createEntityManager();
+            EntityManager entityManager2 = entityManagerFactory.createEntityManager();
+
             userAppImp = new UserAppImp(entityManager);
-            vetRepositoryImp = new VetRepositoryImp(entityManager);
+            vetRepositoryImp = new VetRepositoryImp(entityManager2);
 
             UserApp userApp = new UserApp(user.getUserName(), user.getPassword(), user.getEmail(), user.getRole());
-            Vet vet = new Vet(userApp, name, addres, neighborhood);
-
             userAppImp.save(userApp);
-            vetRepositoryImp.save(vet);
-            return true;
-
-        } else {
-            return false;
+            Vet vet = new Vet(userApp, name, addres, neighborhood);
+            if (vetRepositoryImp.save(vet)) {
+                flag = true;
+            }
         }
-
+        return flag;
     }
 }
