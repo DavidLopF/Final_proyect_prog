@@ -35,46 +35,46 @@
     <section class="container">
       <div class="card-panel">
         <div class="text-center">
-          <img src="https://i.ibb.co/ckDdYBB/Ciudadados-de-4-Patas.png" alt="Logo" class="img-fluid w-50" >
+          <img src="https://i.ibb.co/ckDdYBB/Ciudadados-de-4-Patas.png" alt="Logo" id="usernm" class="img-fluid w-50" >
           <h1>Owner Register</h1>
         </div>
-        <form action="/action_page.php" style="max-width:500px;margin:auto">
+        <form action="" style="max-width:500px;margin:auto">
           <div class="input-container">
             <i class="fa fa-user icon"></i>
-            <input class="input-field" type="text" placeholder="Name and last name" name="usrnm">
+            <input class="input-field" type="text" placeholder="Name and last name" id="usrnm" name="usrnm">
           </div>
         
           <div class="input-container">
             <i class="fa fa-envelope icon"></i>
-            <input class="input-field" type="text" placeholder="Email" name="email">
+            <input class="input-field" type="text" placeholder="Email"  id="Email" name="email">
           </div>
 
           <div class="input-container">
             <i class="fas fa-map-marked-alt icon"></i>
-            <input class="input-field" type="text" placeholder="Adress" name="Adress">
+            <input class="input-field" type="text" placeholder="Adress" id="Adress" name="Adress">
           </div>
 
           <div class="input-container">
             <i class="fas fa-location-arrow icon"></i>
-            <input class="input-field" type="text" placeholder="Neighborhood" name="neighborhood">
+            <input class="input-field" type="text" placeholder="Neighborhood"  id="neighborhood" name="neighborhood">
           </div>
 
           <div class="input-container">
             <i class="fas fa-user-alt icon"></i>
-            <input class="input-field" type="text" placeholder="Username" name="username">
+            <input class="input-field" type="text" placeholder="Username" id="username" name="username">
           </div>
           
           <div class="input-container">
             <i class="fas fa-lock-open icon"></i>
-            <input class="input-field" type="password" placeholder="Password" name="pwrd">
+            <input class="input-field" type="password" placeholder="Password" id="pwrd" name="pwrd">
           </div>
 
           <div class="input-container">
             <i class="fas fa-lock icon"></i>
-            <input class="input-field" type="password" placeholder="Confirm password" name="Confirm">
+            <input class="input-field" type="password" placeholder="Confirm password"  id="confirm" name="Confirm">
           </div>
         
-          <button type="submit" class="btn">Send</button>
+          <button type="submit" class="btn" onclick="sendDataOwner()">Send</button>
         </form>
       </div>
     </section>
@@ -107,6 +107,7 @@
       </div>
     </div>
     <script src="j=Js/popup.js"></script>
+    <script src="Js/SignUp.js" ></script>
 
 </body>
 </html>

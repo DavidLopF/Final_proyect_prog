@@ -33,6 +33,9 @@ public class Pet implements Serializable {
     @OneToMany(mappedBy = "pet",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PetCase> cases;
 
+    @OneToMany(mappedBy = "pet",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Picture> pictures;
+
 
     public Pet(Integer name_id, long microchip, String name, String species, String race, String size, String sex, String picture, Integer owner_id) {
         this.name_id = name_id;
@@ -44,6 +47,16 @@ public class Pet implements Serializable {
         this.sex = sex;
         this.picture = picture;
         this.owner_id = owner_id;
+    }
+
+    public void addPicture(Picture p){
+        pictures.add(p);
+        p.setPet(this);
+    }
+
+    public void removePicture(Picture p){
+        pictures.remove(p);
+        p.setPet(null);
     }
 
     public Pet(){
