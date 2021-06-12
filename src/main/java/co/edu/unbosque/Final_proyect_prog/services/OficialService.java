@@ -16,14 +16,15 @@ public class OficialService {
     private OficiaImp oficiaImp;
 
     public boolean createOficial(UserAppPOJO user, String name) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-        userAppRepository = new UserAppImp(entityManager);
-        oficiaImp = new OficiaImp(entityManager);
-
         if (!user.getUserName().isEmpty() && !user.getPassword().isEmpty()
-                && user.getEmail().isEmpty() && !user.getRole().isEmpty()) {
+                && !user.getEmail().isEmpty() && !user.getRole().isEmpty()
+                && !name.isEmpty()) {
+
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+            userAppRepository = new UserAppImp(entityManager);
+            oficiaImp = new OficiaImp(entityManager);
 
             UserApp userApp = new UserApp(user.getUserName(), user.getPassword(), user.getEmail(), user.getRole());
             userAppRepository.save(userApp);
@@ -32,9 +33,7 @@ public class OficialService {
             entityManager.close();
             entityManagerFactory.close();
             return true;
-        }else{
-            entityManager.close();
-            entityManagerFactory.close();
+        } else {
             return false;
         }
 

@@ -12,21 +12,20 @@ import javax.ws.rs.core.Response;
 public class OficialResource {
 
     @POST
-    @Path("{userName}/{password}/{email}/{role}/{name}")
+    @Path("/{userName}/{password}/{email}/{name}")
     public Response create(@PathParam("userName") String userName,
-                           @PathParam("email") String email,
                            @PathParam("password") String password,
-                           @PathParam("role") String role,
+                           @PathParam("email") String email,
                            @PathParam("name") String name) {
 
-        UserAppPOJO user = new UserAppPOJO(userName, email, password, role);
+        UserAppPOJO user = new UserAppPOJO(userName, email, password, "oficial");
         OficialService oficialService = new OficialService();
 
         if (oficialService.createOficial(user, name)) {
 
             return Response.status(Response.Status.CREATED).build(); //201
         } else {
-            return Response.status(Response.Status.NOT_ACCEPTABLE).build(); //buscar el codigo  
+            return Response.status(Response.Status.NOT_ACCEPTABLE).build(); //buscar el codigo
         }
     }
 }
