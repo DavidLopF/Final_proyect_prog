@@ -25,7 +25,7 @@ public class OficialResource {
 
             return Response.status(Response.Status.CREATED).build(); //201
         } else {
-            return Response.status(Response.Status.NOT_ACCEPTABLE).build(); //406
+            return Response.status(Response.Status.NOT_ACCEPTABLE).build(); //buscar el codigo
         }
     }
 }

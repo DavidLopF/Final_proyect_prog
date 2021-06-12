@@ -1,6 +1,7 @@
 package co.edu.unbosque.Final_proyect_prog.repositories;
 
-public interface VetRepository {
+import co.edu.unbosque.Final_proyect_prog.entities.Vet;
 
-    public void save();
+public interface VetRepository {
+    public void save(Vet vet);
 }

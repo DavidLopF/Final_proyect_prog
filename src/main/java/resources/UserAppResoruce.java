@@ -12,24 +12,6 @@ import javax.ws.rs.core.Response;
 @Path("/userApp")
 public class UserAppResoruce {
 
-    @POST
-    @Path("{userName}/{password}/{email}/{role}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Object create(@PathParam("userName") String userName,
-                         @PathParam("password") String password,
-                         @PathParam("email") String email,
-                         @PathParam("role") String role) {
-
-        UserAppPOJO userAppPOJO = new UserAppPOJO(userName, email, password, role);
-        UserAppService userAppService = new UserAppService();
-        userAppService.createUser(userName, password, email, role);
-
-
-        return Response.status(Response.Status.CREATED)
-                .entity(userAppPOJO)
-                .build();
-
-    }
 
 
     @POST

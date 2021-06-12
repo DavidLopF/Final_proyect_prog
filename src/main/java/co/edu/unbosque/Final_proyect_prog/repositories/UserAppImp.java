@@ -34,7 +34,7 @@ public class UserAppImp implements UserAppRepository {
 
     @Override
     public void save(UserApp user) {
-               try {
+        try {
             entityManager.getTransaction().begin();
             entityManager.persist(user);
             entityManager.getTransaction().commit();

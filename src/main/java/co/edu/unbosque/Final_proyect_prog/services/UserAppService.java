@@ -19,32 +19,8 @@ import java.util.Optional;
 public class UserAppService {
 
     private UserAppImp userAppRepository;
-    private OficiaImp oficiaImp;
-    private OwnerImp ownerImp;
-
-    public void createUser(String userName, String password, String email, String role) {
-
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-        userAppRepository = new UserAppImp(entityManager);
-        UserApp newUserApp = new UserApp(userName, password, email, role);
-        userAppRepository.save(newUserApp);
 
 
-        if (newUserApp.getRole().equals("oficial")) {
-            oficiaImp = new OficiaImp(entityManager);
-            oficiaImp.save(new Oficial(newUserApp, "oficial david"));
-        } else if (newUserApp.getRole().equals("owner")) {
-            ownerImp = new OwnerImp(entityManager);
-            // Owner newOwner = new Owner();
-            //ownerImp.save(newOwner);
-
-        }
-        entityManager.close();
-        entityManagerFactory.close();
-
-    }
 
     public Optional<String> validateUser(String username, String password ) {
 

@@ -18,24 +18,24 @@ public class Vet implements Serializable {
     @Column(name = "address")
     private String address;
 
-    @Column(name = "neigborhood")
-    private String neigborhood;
+    @Column(name = "neighborhood")
+    private String neighborhood;
+
+    @Column(name = "vet_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private int vetId;
 
     @OneToMany(mappedBy = "vet", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Visit> visits;
 
-    @Column(name = "vet:id", unique = true)
-    @GeneratedValue
-    private Integer vetId;
 
-    public Vet(UserApp userApp, String name, String address, String neigborhood) {
+
+
+    public Vet(UserApp userApp, String name, String address, String neighborhood) {
         this.userApp = userApp;
         this.name = name;
         this.address = address;
-        this.neigborhood = neigborhood;
-    }
-
-    public Vet() {
+        this.neighborhood = neighborhood;
     }
 
     public UserApp getUserApp() {
@@ -62,13 +62,27 @@ public class Vet implements Serializable {
         this.address = address;
     }
 
-    public String getNeigborhood() {
-        return neigborhood;
+    public String getNeighborhood() {
+        return neighborhood;
     }
 
-    public void setNeigborhood(String neigborhood) {
-        this.neigborhood = neigborhood;
+    public void setNeighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
     }
 
+    public List<Visit> getVisits() {
+        return visits;
+    }
 
+    public void setVisits(List<Visit> visits) {
+        this.visits = visits;
+    }
+
+    public Integer getVetId() {
+        return vetId;
+    }
+
+    public void setVetId(Integer vetId) {
+        this.vetId = vetId;
+    }
 }

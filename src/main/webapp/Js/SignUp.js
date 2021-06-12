@@ -56,18 +56,47 @@ function sendDataOficial() {
                 alert("Oficial created successfully")
             } else if (http.readyState == 4 && http.status == 406) {
                 alert("you should check all input for this form: \n" +
-                    "   -This inputs don´t shoudl null")
+                    "    -This inputs don´t shoudl null")
             } else if (http.readyState == 4 && http.status != 201 && http.status != 406) {
                 alert(http.responseText)
             }
         }
-
         http.send()
 
-
     }
+}
 
+function sendDataVet() {
+    var userName = document.getElementById("username").value
+    var name = document.getElementById("name").value
+    var email = document.getElementById("email").value
+    var password = document.getElementById("pwrd").value
+    var check = document.getElementById("confirm").value
+    var adress = document.getElementById("adress").value
+    var neighborhood = document.getElementById("neighborhood").value
 
+    if (password == check) {
+        var http = new XMLHttpRequest()
+        var uri = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/vet/' + userName + '/' + password + "/" + email
+            + '/' + name + '/' + adress + '/' + neighborhood
+
+        http.open("POST", uri, true)
+        http.onreadystatechange = function () {
+            if (http.readyState == 4 && http.status == 201) {
+                alert("Vet created successfully")
+            } else if (http.readyState == 4 && http.status == 406) {
+                alert("you should check all input for this form: \n" +
+                    "    -This inputs don´t shoudl null")
+            } else if (http.readyState == 4 && http.status != 201 && http.status != 406) {
+                alert(http.responseText)
+            }
+        }
+        http.send()
+
+    } else {
+        alert("You do have mistakes in inputs:" +
+            "\n-password and confirm password, this inputs should same !!!!")
+    }
 }
 
 
