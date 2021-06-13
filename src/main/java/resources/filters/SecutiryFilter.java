@@ -24,13 +24,12 @@ public class SecutiryFilter implements ContainerRequestFilter {
     public void filter(ContainerRequestContext requestContext) throws IOException {
 
         try {
-
             List<String> authHeader = requestContext.getHeaders().get(AUTHORIZATION_HEADER_KEY);
-
             if (authHeader.size() > 0) {
 
                 // Extracting credentials from header
                 String authToken = authHeader.get(0);
+                System.out.println(authToken);
                 authToken = authToken.replaceFirst(AUTHORIZATION_HEADER_PREFIX, "");
                 String decodedString = new String(Base64.getDecoder().decode(authToken));
                 StringTokenizer tokenizer = new StringTokenizer(decodedString, ":");
