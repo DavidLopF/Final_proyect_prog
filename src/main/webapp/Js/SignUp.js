@@ -35,6 +35,42 @@ function sendDataOwner() {
     }
 }
 
+function updatePet(){
+
+    var fileName = document.getElementById("file").files[0].name
+    var microship = document.getElementById("microship").value
+    var name = document.getElementById("name").value
+    var specie = document.getElementById("specie").value
+    var race = document.getElementById("race").value
+    var size = document.getElementById("size").value
+    var sex = document.getElementById("sex").value
+    var userOwner = document.getElementById("username").value
+    var http = new XMLHttpRequest()
+
+
+    var url = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets/'
+        + microship + '/' + name + "/" + specie + '/' + race +'/'+size+'/'+sex
+        +  '/' + fileName + '/' + userOwner
+    http.open("POST", url, true)
+    http.onreadystatechange = function () {
+
+        if (http.readyState == 4 && http.status == 201) {
+            alert("Pet created successfully")
+        } else if (http.readyState == 4 && http.status == 406) {
+            alert("you should check all input for this form: \n" +
+                "    -This inputs don´t shoudl null")
+        } else if (http.readyState == 4 && http.status != 201 && http.status != 406) {
+            alert(http.responseText)
+        }
+    }
+    http.send()
+
+
+
+}
+
+
+
 function sendDataOficial() {
 
 

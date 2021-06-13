@@ -9,6 +9,7 @@ import resources.Pojos.UserAppPOJO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.Random;
 
 public class OwnerService{
     private UserAppImp userAppImp;
@@ -23,10 +24,14 @@ public class OwnerService{
             userAppImp = new UserAppImp(entityManager);
             ownerImp = new OwnerImp(entityManager);
 
+            Random r = new Random();
+            int num = (int)(Math.random()*(10000+0));
+
             UserApp userApp = new UserApp(user.getUserName(), user.getPassword(), user.getEmail(), user.getRole());
             userAppImp.save(userApp);
 
-            Owner owner = new Owner(userApp,name,address,neight);
+            Owner owner = new Owner(userApp,name,address,neight,num);
+
             ownerImp.save(owner);
             entityManager.close();
             entityManagerFactory.close();
