@@ -8,6 +8,7 @@ import java.util.List;
 @Table(name = "Pet")
 public class Pet implements Serializable {
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "Name_id")
     private Integer name_id;
     @Column(name = "Microship")
@@ -22,8 +23,6 @@ public class Pet implements Serializable {
     private String size;
     @Column(name = "Sex")
     private String sex;
-    @Column(name = "Picture")
-    private String picture;
     @Column(name = "Owner_id")
     private Integer owner_id;
 
@@ -34,20 +33,15 @@ public class Pet implements Serializable {
     @OneToMany(mappedBy = "pet",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PetCase> cases;
 
-  /*  @OneToMany(mappedBy = "pet",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Picture> pictures;*/
 
 
-    public Pet(Integer name_id, long microchip, String name, String species, String race, String size, String sex, String picture, Integer owner_id) {
-        this.name_id = name_id;
+    public Pet(long microchip, String name, String species, String race, String size, String sex) {
         this.microchip = microchip;
         this.name = name;
         this.species = species;
         this.race = race;
         this.size = size;
         this.sex = sex;
-        this.picture = picture;
-        this.owner_id = owner_id;
     }
 
 
@@ -64,6 +58,8 @@ public class Pet implements Serializable {
         cases.remove(p);
         p.setPet_id(0);
     }
+
+
 
     public Integer getName_id() {
         return name_id;
@@ -121,13 +117,6 @@ public class Pet implements Serializable {
         this.sex = sex;
     }
 
-    public String getPicture() {
-        return picture;
-    }
-
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
 
     public Integer getOwner_id() {
         return owner_id;

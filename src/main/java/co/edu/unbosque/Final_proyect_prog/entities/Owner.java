@@ -11,7 +11,6 @@ public class Owner implements Serializable {
     @OneToOne
     private UserApp userApp;
 
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "Person_id")
     private Integer person_id;
 
@@ -27,12 +26,15 @@ public class Owner implements Serializable {
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pet> pets;
 
-    public Owner(UserApp userApp, String name, String address, String neighborhood) {
+    public Owner(UserApp userApp, String name, String address, String neighborhood, Integer person_id) {
         this.userApp = userApp;
         this.name = name;
         this.address = address;
         this.neighborhood = neighborhood;
+        this.person_id = person_id;
     }
+
+
 
     public UserApp getUserApp() {
         return userApp;

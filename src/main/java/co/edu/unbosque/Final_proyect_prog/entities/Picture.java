@@ -1,11 +1,17 @@
 package co.edu.unbosque.Final_proyect_prog.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Picture")
-public class Picture {
+public class Picture implements Serializable {
+     
     @Id
+    @OneToOne
+    @JoinColumn(name = "pet_id")
+    private Pet pet;
+
     @Column(name = "url")
     private String url;
     @Column(name = "description")
