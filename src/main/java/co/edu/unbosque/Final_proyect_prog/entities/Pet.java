@@ -25,6 +25,7 @@ public class Pet implements Serializable {
     private String sex;
     @Column(name = "Owner_id")
     private Integer owner_id;
+
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "user_name")
     private Owner owner;
@@ -43,15 +44,6 @@ public class Pet implements Serializable {
         this.sex = sex;
     }
 
-    /*public void addPicture(Picture p){
-        pictures.add(p);
-        p.setPet(this);
-    }
-
-    public void removePicture(Picture p){
-        pictures.remove(p);
-        p.setPet(null);
-    }*/
 
     public Pet(){
 
