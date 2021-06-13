@@ -13,7 +13,6 @@ import javax.ws.rs.core.Response;
 public class UserAppResoruce {
 
 
-
     @POST
     @Path("{userName}/{password}/{email}/{role}/{name}/{address}/{neighboorhod}")
     @Produces(MediaType.APPLICATION_JSON)
