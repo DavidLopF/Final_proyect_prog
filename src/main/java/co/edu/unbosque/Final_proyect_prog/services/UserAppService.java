@@ -24,7 +24,7 @@ public class UserAppService {
 
     public Optional<String> validateUser(String username, String password ) {
 
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("tutorial");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         // Getting credentials from the database

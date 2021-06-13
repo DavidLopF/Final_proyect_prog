@@ -2,10 +2,10 @@ package resources;
 
 import co.edu.unbosque.Final_proyect_prog.services.OficialService;
 import resources.Pojos.UserAppPOJO;
+import resources.filters.Logged;
 
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/userApp/oficial")
@@ -28,4 +28,22 @@ public class OficialResource {
             return Response.status(Response.Status.NOT_ACCEPTABLE).build(); //buscar el codigo
         }
     }
+
+    @Logged
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response hello(@HeaderParam("role") String role) {
+
+        // If role doesn't match
+        if (!"oficial".equals(role))
+            return Response.status(Response.Status.FORBIDDEN)
+                    .entity("Role " + role + " cannot access to this method")
+                    .build();
+
+        return Response.ok()
+                .entity("Hello, World, " + role + "!")
+                .build();
+
+    }
+
 }

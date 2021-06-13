@@ -95,9 +95,11 @@ function sendDataOficial() {
 
             if (http.readyState == 4 && http.status == 201) {
                 alert("Oficial created successfully")
+                window.location("index.html")
             } else if (http.readyState == 4 && http.status == 406) {
                 alert("you should check all input for this form: \n" +
-                    "    -This inputs don´t shoudl null")
+                    "    -This inputs don´t shoudl null.\n" +
+                    "    -If all inputs isn't stay null, this user name is already in use.")
             } else if (http.readyState == 4 && http.status != 201 && http.status != 406) {
                 alert(http.responseText)
             }
@@ -125,15 +127,17 @@ function sendDataVet() {
         http.onreadystatechange = function () {
             if (http.readyState == 4 && http.status == 201) {
                 alert("Vet created successfully")
+                window.location("index.html")
             } else if (http.readyState == 4 && http.status == 406) {
                 alert("you should check all input for this form: \n" +
-                    "    -This inputs don´t shoudl null")
+                    "    -This inputs don´t shoudl null.\n" +
+                    "    -If all inputs isn't stay null, this user name is already in use.")
             } else if (http.readyState == 4 && http.status != 201 && http.status != 406) {
                 alert(http.responseText)
             }
         }
+        http.set
         http.send()
-
     } else {
         alert("You do have mistakes in inputs:" +
             "\n-password and confirm password, this inputs should same !!!!")
