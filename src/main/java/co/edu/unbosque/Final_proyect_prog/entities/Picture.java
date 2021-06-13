@@ -6,9 +6,6 @@ import javax.persistence.*;
 @Table(name = "Picture")
 public class Picture {
     @Id
-    @ManyToOne
-    @JoinColumn(name = "pet")
-    private Pet pet;
     @Column(name = "url")
     private String url;
     @Column(name = "description")
@@ -20,20 +17,13 @@ public class Picture {
 
     }
 
-    public Picture(Pet pet,String url, String description, String date) {
-        this.pet = pet;
+    public Picture(String url, String description, String date) {
+
         this.url = url;
         this.description = description;
         this.date = date;
     }
 
-    public Pet getPet() {
-        return pet;
-    }
-
-    public void setPet(Pet pet) {
-        this.pet = pet;
-    }
 
     public String getUrl() {
         return url;

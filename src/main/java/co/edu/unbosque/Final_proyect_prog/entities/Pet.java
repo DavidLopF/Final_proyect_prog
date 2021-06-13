@@ -26,6 +26,7 @@ public class Pet implements Serializable {
     private String picture;
     @Column(name = "Owner_id")
     private Integer owner_id;
+
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "user_name")
     private Owner owner;
@@ -33,8 +34,8 @@ public class Pet implements Serializable {
     @OneToMany(mappedBy = "pet",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PetCase> cases;
 
-    @OneToMany(mappedBy = "pet",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Picture> pictures;
+  /*  @OneToMany(mappedBy = "pet",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Picture> pictures;*/
 
 
     public Pet(Integer name_id, long microchip, String name, String species, String race, String size, String sex, String picture, Integer owner_id) {
@@ -49,15 +50,6 @@ public class Pet implements Serializable {
         this.owner_id = owner_id;
     }
 
-    public void addPicture(Picture p){
-        pictures.add(p);
-        p.setPet(this);
-    }
-
-    public void removePicture(Picture p){
-        pictures.remove(p);
-        p.setPet(null);
-    }
 
     public Pet(){
 
