@@ -36,9 +36,10 @@ public class PetService {
                 pet.setOwner_id(a.getPerson_id());
                 pet.setOwner(a);
             });
-            petImp.save(pet);
+
 
             Picture picture = new Picture(pet,pojo.getNamePicture(),pojo.getDescription(),pojo.getDate());
+            petImp.save(pet);
             pictureImp.save(picture);
             return true;
         }else{

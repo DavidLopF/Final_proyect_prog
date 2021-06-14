@@ -5,10 +5,7 @@ import co.edu.unbosque.Final_proyect_prog.services.PetService;
 import resources.Pojos.PetPOJO;
 import resources.Pojos.PicturePojo;
 
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.xml.crypto.Data;
@@ -29,8 +26,9 @@ public class PetResource {
                            @PathParam("ownerUser") String ownerUser) {
         Date date = new Date();
         String dataRegister = date.toString();
+        String pictureNameFinal = ownerUser+pictureName;
         String pDescription = "Pet name: " + name + "\nRegistred at " + date;
-        PicturePojo picturePojo = new PicturePojo(pDescription, pictureName, dataRegister);
+        PicturePojo picturePojo = new PicturePojo(pDescription, pictureNameFinal, dataRegister);
         PetService petService = new PetService();
         if (petService.createPet(picturePojo,name,microship,specie,race,size,sex,ownerUser)) {
             return Response.status(Response.Status.CREATED).build(); //201
@@ -41,5 +39,7 @@ public class PetResource {
 
 
     }
+
+
 
 }
