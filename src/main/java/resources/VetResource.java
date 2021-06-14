@@ -34,7 +34,7 @@ public class VetResource {
     @Logged
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public Response hello(@HeaderParam("role") String role) {
+    public Response hello(@HeaderParam("role") String role, @HeaderParam("userName") String userName) {
 
         // If role doesn't match
         if (!"vet".equals(role))
@@ -42,9 +42,7 @@ public class VetResource {
                     .entity("Role " + role + " cannot access to this method")
                     .build();
 
-        return Response.ok()
-                .entity("Hello, World, " + role + "!")
-                .build();
-
+        return  Response.ok()
+                .entity(role + ":" + userName).build();
     }
 }

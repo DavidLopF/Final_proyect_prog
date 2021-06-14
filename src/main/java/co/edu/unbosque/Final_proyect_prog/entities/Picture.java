@@ -6,11 +6,11 @@ import java.io.Serializable;
 @Entity
 @Table(name = "Picture")
 public class Picture implements Serializable {
+
     @Id
     @OneToOne
     @JoinColumn(name = "pet_id")
     private Pet pet;
-    @Id
     @Column(name = "url")
     private String url;
     @Column(name = "description")
@@ -18,11 +18,11 @@ public class Picture implements Serializable {
     @Column(name = "date")
     private String date;
 
-    public Picture(){
+    public Picture() {
 
     }
 
-    public Picture(Pet pet,String url, String description, String date) {
+    public Picture(Pet pet, String url, String description, String date) {
         this.pet = pet;
         this.url = url;
         this.description = description;
