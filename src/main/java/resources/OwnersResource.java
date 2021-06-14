@@ -42,7 +42,7 @@ public class OwnersResource {
     @Logged
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public Response hello(@HeaderParam("role") String role) {
+    public Response hello(@HeaderParam("role") String role, @HeaderParam("userName") String userName) {
 
         // If role doesn't match
         if (!"Owner".equals(role))
@@ -50,10 +50,8 @@ public class OwnersResource {
                     .entity("Role " + role + " cannot access to this method")
                     .build();
 
-        return Response.ok()
-                .entity("Hello, World, " + role + "!")
-                .build();
-
+        return  Response.ok()
+                .entity(role + ":" + userName).build();
     }
 
 
