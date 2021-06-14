@@ -4,6 +4,7 @@ import co.edu.unbosque.Final_proyect_prog.entities.Owner;
 import co.edu.unbosque.Final_proyect_prog.entities.UserApp;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 import java.util.Optional;
 
 public class OwnerImp implements OwnerRepository{
@@ -21,6 +22,11 @@ public class OwnerImp implements OwnerRepository{
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Owner> findById(Integer id) {
+        return entityManager.createQuery("from Owner where person_id  = " + id).getResultList();
     }
 
     @Override

@@ -64,7 +64,7 @@ function updatePet(){
         }
     }
     http.send()
-
+    uploadPicture()
 
 
 }
@@ -142,6 +142,26 @@ function sendDataVet() {
         alert("You do have mistakes in inputs:" +
             "\n-password and confirm password, this inputs should same !!!!")
     }
+}
+
+function uploadPicture(){
+    var username = document.getElementById("username").value
+    var form = new FormData(document.getElementById("file2"))
+    var http = new XMLHttpRequest()
+    var uri = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets/pictures/upload/'+username
+    http.open("POST", uri, true)
+    http.onreadystatechange = function () {
+        if (http.readyState == 4 && http.status == 201) {
+            alert("picture created successfully")
+        } else if (http.readyState == 4 && http.status == 406) {
+            alert("you should check all input for this form: \n" +
+                "    -This inputs don´t shoudl null.\n" +
+                "    -If all inputs isn't stay null, this user name is already in use.")
+        } else if (http.readyState == 4 && http.status != 201 && http.status != 406) {
+            alert(http.responseText)
+        }
+    }
+    http.send(form)
 }
 
 

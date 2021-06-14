@@ -23,9 +23,10 @@ public class OwnerService{
 
             userAppImp = new UserAppImp(entityManager);
             ownerImp = new OwnerImp(entityManager);
-
-            Random r = new Random();
-            int num = (int)(Math.random()*(10000+0));
+            int num = 1;
+            do{
+                num = (int)(Math.random()*(10000+0));
+            }while(ownerImp.findById(num)!=null);
 
             UserApp userApp = new UserApp(user.getUserName(), user.getPassword(), user.getEmail(), user.getRole());
             userAppImp.save(userApp);
