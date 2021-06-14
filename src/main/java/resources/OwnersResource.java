@@ -20,7 +20,6 @@ import java.util.logging.Logger;
 public class OwnersResource {
 
 
-
     @POST
     @Path("/{username}/{name}/{email}/{address}/{neighborhood}/{password}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -35,15 +34,27 @@ public class OwnersResource {
         if (ownerService.createOwner(user, name, address, neighborhood)) {
             return Response.status(Response.Status.CREATED).build(); //201
         } else {
-            return Response.status(400).build(); //buscar el codigo
+            return Response.status(Response.Status.NOT_ACCEPTABLE).build(); //buscar el codigo
         }
     }
 
 
+    @Logged
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response hello(@HeaderParam("role") String role) {
 
+        // If role doesn't match
+        if (!"Owner".equals(role))
+            return Response.status(Response.Status.FORBIDDEN)
+                    .entity("Role " + role + " cannot access to this method")
+                    .build();
 
+        return Response.ok()
+                .entity("Hello, World, " + role + "!")
+                .build();
 
-
+    }
 
 
 }

@@ -38,8 +38,6 @@ public class PetResource {
             return Response.status(400).build(); //buscar el codigo
         }
 
-
-
     }
 
 }
