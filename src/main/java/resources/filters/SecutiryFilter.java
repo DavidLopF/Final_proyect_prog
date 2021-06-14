@@ -1,11 +1,13 @@
 package resources.filters;
 
+import co.edu.unbosque.Final_proyect_prog.entities.UserApp;
 import co.edu.unbosque.Final_proyect_prog.services.UserAppService;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerRequestFilter;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.ext.Provider;
+import javax.xml.registry.infomodel.User;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
@@ -36,9 +38,10 @@ public class SecutiryFilter implements ContainerRequestFilter {
                 String password = tokenizer.nextToken();
 
                 // Validating credentials
-                Optional<String> role = new UserAppService().validateUser(username, password);
+                Optional<UserApp> role = new UserAppService().validateUser(username, password);
                 if(role.isPresent()) {
-                    requestContext.getHeaders().add("role", role.get());
+                    requestContext.getHeaders().add("role", role.get().getRole());
+                    requestContext.getHeaders().add("userName" ,  role.get().getUserName());
                     return;
                 } else {
                     requestContext.abortWith(Response

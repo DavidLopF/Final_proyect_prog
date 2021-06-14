@@ -22,7 +22,7 @@ public class UserAppService {
 
 
 
-    public Optional<String> validateUser(String username, String password ) {
+    public Optional<UserApp> validateUser(String username, String password ) {
 
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
@@ -38,7 +38,7 @@ public class UserAppService {
         // If success, return the user role
         if (user.isPresent()) {
             if (user.get().getUserName().equals(username) && user.get().getPassword().equals(password)) {
-                return Optional.of(user.get().getRole());
+                return user;
             }
         }
 
