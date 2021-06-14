@@ -29,7 +29,6 @@ public class SecutiryFilter implements ContainerRequestFilter {
 
                 // Extracting credentials from header
                 String authToken = authHeader.get(0);
-                System.out.println(authToken);
                 authToken = authToken.replaceFirst(AUTHORIZATION_HEADER_PREFIX, "");
                 String decodedString = new String(Base64.getDecoder().decode(authToken));
                 StringTokenizer tokenizer = new StringTokenizer(decodedString, ":");
