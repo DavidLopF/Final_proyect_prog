@@ -9,6 +9,7 @@ function verificationLoginOficial() {
     http.withCredentials = true
     http.onreadystatechange = function () {
         if (http.readyState == 4 && http.status == 200) {
+
             var data = http.responseText.split(":")
             document.cookie = "role="+ data[0]
             document.cookie = "userName="+ data[1]
@@ -33,7 +34,9 @@ function verificationLoginVet() {
     http.onreadystatechange = function () {
 
         if (http.readyState == 4 && http.status == 200) {
-            alert(http.responseText)
+            var data = http.responseText.split(":")
+            document.cookie = "role="+ data[0]
+            document.cookie = "userName="+ data[1]
         } else if (http.readyState == 4 && http.status != 200) {
             alert(http.responseText)
         }
@@ -54,7 +57,9 @@ function verificationLoginOwner() {
     http.onreadystatechange = function () {
 
         if (http.readyState == 4 && http.status == 200) {
-            alert(http.responseText)
+            var data = http.responseText.split(":")
+            document.cookie = "role="+ data[0]
+            document.cookie = "userName="+ data[1]
         } else if (http.readyState == 4 && http.status != 200) {
             alert(http.responseText)
         }
