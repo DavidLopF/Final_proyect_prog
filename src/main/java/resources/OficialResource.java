@@ -41,11 +41,21 @@ public class OficialResource {
             return Response.status(Response.Status.FORBIDDEN)
                     .entity("Role " + role + " cannot access to this method")
                     .build();
-
+        
         return Response.ok()
                 .entity(role + ":" + userName).build();
 
+    }
 
+    @GET
+    @Path("/{userName}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response testCookie(@PathParam("userName") String userName) {
+        if (!userName.isEmpty()) {
+            return Response.ok().entity("el usuario es: " + userName).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 
 }
