@@ -164,7 +164,7 @@ header .cta button:hover {
   font-size: 0.75rem;
 }
 
-.popup input[type="submit"] {
+.popup input[type="button"] {
   width: 100%;
   border: none;
   outline: none;
@@ -176,7 +176,7 @@ header .cta button:hover {
   
 }
 
-.popup input[type="submit"]:hover {
+.popup input[type="button"]:hover {
   background-color: #181f22;
 }
 
