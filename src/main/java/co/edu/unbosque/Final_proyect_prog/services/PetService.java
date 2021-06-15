@@ -11,7 +11,12 @@ import resources.Pojos.PicturePojo;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import java.util.Optional;
+import javax.servlet.*;
+import javax.servlet.descriptor.JspConfigDescriptor;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.*;
 
 public class PetService {
     private PictureImp pictureImp;
@@ -36,8 +41,6 @@ public class PetService {
                 pet.setOwner_id(a.getPerson_id());
                 pet.setOwner(a);
             });
-
-
             Picture picture = new Picture(pet,pojo.getNamePicture(),pojo.getDescription(),pojo.getDate());
             petImp.save(pet);
             pictureImp.save(picture);
@@ -47,4 +50,8 @@ public class PetService {
         }
 
     }
+
+
+
+
 }

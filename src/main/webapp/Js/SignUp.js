@@ -34,8 +34,37 @@ function sendDataOwner() {
 
     }
 }
+function uploadPicture(){
+    var fileName = document.getElementById("file").files[0].name
+    var microship = document.getElementById("microship").value
+    var name = document.getElementById("name").value
+    var specie = document.getElementById("specie").value
+    var race = document.getElementById("race").value
+    var size = document.getElementById("size").value
+    var sex = document.getElementById("sex").value
+    var userOwner = document.getElementById("username").value
+    var form = new FormData(document.getElementById("file2"))
+    var http = new XMLHttpRequest()
+    var uri = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets/pictures/upload/'
+        + microship + '/' + name + "/" + specie + '/' + race +'/'+size+'/'+sex
+        +  '/' + fileName + '/' + userOwner
+    http.open("POST", uri, true)
+    http.onreadystatechange = function () {
+        if (http.readyState == 4 && http.status == 201) {
+            alert("picture created successfully")
+        } else if (http.readyState == 4 && http.status == 406) {
+            alert("you should check all input for this form: \n" +
+                "    -This inputs don´t shoudl null.\n" +
+                "    -If all inputs isn't stay null, this user name is already in use.")
+        } else if (http.readyState == 4 && http.status != 201 && http.status != 406) {
+            alert(http.responseText)
+        }
+    }
+    http.send(form)
+}
 
-function updatePet(){
+
+function createPet(){
 
     var fileName = document.getElementById("file").files[0].name
     var microship = document.getElementById("microship").value
@@ -46,6 +75,7 @@ function updatePet(){
     var sex = document.getElementById("sex").value
     var userOwner = document.getElementById("username").value
     var http = new XMLHttpRequest()
+
 
 
     var url = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets/'
@@ -144,24 +174,5 @@ function sendDataVet() {
     }
 }
 
-function uploadPicture(){
-    var username = document.getElementById("username").value
-    var form = new FormData(document.getElementById("file2"))
-    var http = new XMLHttpRequest()
-    var uri = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets/pictures/upload/'+username
-    http.open("POST", uri, true)
-    http.onreadystatechange = function () {
-        if (http.readyState == 4 && http.status == 201) {
-            alert("picture created successfully")
-        } else if (http.readyState == 4 && http.status == 406) {
-            alert("you should check all input for this form: \n" +
-                "    -This inputs don´t shoudl null.\n" +
-                "    -If all inputs isn't stay null, this user name is already in use.")
-        } else if (http.readyState == 4 && http.status != 201 && http.status != 406) {
-            alert(http.responseText)
-        }
-    }
-    http.send(form)
-}
 
 

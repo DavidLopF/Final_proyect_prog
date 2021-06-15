@@ -1,27 +1,37 @@
 package resources;
+import co.edu.unbosque.Final_proyect_prog.services.PetService;
+import co.edu.unbosque.Final_proyect_prog.services.PictureService;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
 import org.jboss.resteasy.plugins.providers.multipart.MultipartFormDataInput;
+import resources.Pojos.PicturePojo;
 
 import javax.servlet.ServletContext;
 import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedMap;
-import javax.ws.rs.core.Response;
+import javax.ws.rs.core.*;
 import java.io.*;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 @Path("/userApp/owners/pets/pictures")
 public class PictureResource {
     private final String UPLOAD_DIRECTORY = "/images/";
+    private String path;
+    private String fileNameFinal;
 
     @POST
-    @Path("/upload/{username}")
+    @Path("/upload/{microship}/{name}/{specie}/{race}/{size}/{sex}/{pictureName}/{ownerUser}")
     @Consumes(MediaType.MULTIPART_FORM_DATA)
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public Response uploadPicture(@Context ServletContext servletContext, MultipartFormDataInput input,
-                                  @PathParam("username") String username){
+                                  @PathParam("name") String name,
+                                  @PathParam("microship") long microship,
+                                  @PathParam("specie") String specie,
+                                  @PathParam("race") String race,
+                                  @PathParam("size") String size,
+                                  @PathParam("sex") String sex,
+                                  @PathParam("pictureName") String pictureName,
+                                  @PathParam("ownerUser") String username){
 
         String filename = "";
         Map<String, List<InputPart>> formParts = input.getFormDataMap();
@@ -41,8 +51,19 @@ public class PictureResource {
                 return Response.status(400).build();
             }
         }
-        String out = "file saved at "+filename;
-        return Response.status(201).build();
+        Date date = new Date();
+        String dataRegister = date.toString();
+        String pictureNameFinal = username+pictureName;
+        String pDescription = "Pet name: " + name + "\nRegistred at " + date;
+        PicturePojo picturePojo = new PicturePojo(pDescription, path, dataRegister);
+        PetService petService = new PetService();
+        if (petService.createPet(picturePojo,name,microship,specie,race,size,sex,username)) {
+            return Response.status(Response.Status.CREATED).build(); //201
+        } else {
+            return Response.status(400).build(); //buscar el codigo
+        }
+
+       // return Response.status(201).build();
     }
 
     private String parseFileName(MultivaluedMap<String,String> headers, String username){
@@ -65,7 +86,9 @@ public class PictureResource {
         byte[] bytes = new byte[1024];
         try{
             String uploadPath = servletContext.getRealPath("") + UPLOAD_DIRECTORY;
-
+            System.out.println("EL path es "+(uploadPath+filename));
+            path = uploadPath+filename;
+            fileNameFinal = filename;
             File uploadDir = new File(uploadPath);
             if(!uploadDir.exists()) uploadDir.mkdir();
 
