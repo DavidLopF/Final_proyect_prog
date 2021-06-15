@@ -4,7 +4,6 @@ function sendDataOwner() {
     var email = document.getElementById("Email").value
     var address = document.getElementById("Adress").value
     var neighborhood = document.getElementById("neighborhood").value
-    var username = document.getElementById("username").value
     var passsword = document.getElementById("pwrd").value
     var confirmPassword = document.getElementById("confirm").value
 
@@ -42,7 +41,8 @@ function uploadPicture(){
     var race = document.getElementById("race").value
     var size = document.getElementById("size").value
     var sex = document.getElementById("sex").value
-    var userOwner = document.getElementById("username").value
+    var userOwner = document.cookie
+    console.log(userOwner)
     var form = new FormData(document.getElementById("file2"))
     var http = new XMLHttpRequest()
     var uri = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets/pictures/upload/'
@@ -73,7 +73,6 @@ function createPet(){
     var race = document.getElementById("race").value
     var size = document.getElementById("size").value
     var sex = document.getElementById("sex").value
-    var userOwner = document.getElementById("username").value
     var http = new XMLHttpRequest()
 
 

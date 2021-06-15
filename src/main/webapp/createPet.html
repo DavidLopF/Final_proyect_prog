@@ -39,47 +39,47 @@
 <section>
     <div class="box">
         <h2>Create Pet</h2>
-        <form action="" style="max-width:500px;margin:auto">
+        <form action="" id="file2" style="max-width:500px;margin:auto">
           <div class="inputBox">
-            <input type="number" name="microchip" required onkeyup="this.setAttribute('value', this.value);" value="">
+            <input type="number" id="microship" name="microchip" required onkeyup="this.setAttribute('value', this.value);" value="">
             <label>Microchip</label>
           </div>
 
           <div class="inputBox">
-            <input type="text" name="name" required value=""
+            <input type="text" id="name" name="name" required value=""
                    onkeyup="this.setAttribute('value', this.value);">
             <label>Name</label>
           </div>
 
           <div class="inputBox">
-            <input type="text" name="specie" required onkeyup="this.setAttribute('value', this.value);" value="">
+            <input type="text" id="specie" name="specie" required onkeyup="this.setAttribute('value', this.value);" value="">
             <label>Specie</label>
           </div>
 
           <div class="inputBox">
-            <input type="text" name="race" required onkeyup="this.setAttribute('value', this.value);" value="">
+            <input type="text" name="race" id="race" required onkeyup="this.setAttribute('value', this.value);" value="">
             <label>Race</label>
           </div>
 
           <div class="inputBox">
-            <input type="text" name="size" required onkeyup="this.setAttribute('value', this.value);" value="">
+            <input type="text" name="size" id="size" required onkeyup="this.setAttribute('value', this.value);" value="">
             <label>Size</label>
           </div>
 
           <div class="inputBox">
-            <input type="text" name="sex" required onkeyup="this.setAttribute('value', this.value);" value="">
+            <input type="text" name="sex" id="sex" required onkeyup="this.setAttribute('value', this.value);" value="">
             <label>Sex</label>
           </div>
 
           <div class="inputBox">
-              <input type="file" name="file" class="file" required onkeyup="this.setAttribute('value', this.value);" value=""> 
+              <input type="file" name="file" id="file" class="file" required onkeyup="this.setAttribute('value', this.value);" value="">
           </div>
 
-          <input type="submit" name="sign-in" value="Create Pet">
+          <input type="button" name="sign-in" onclick="uploadPicture()" value="Create Pet">
         </form>
     </div>
   </section>
-
+    <script src="Js/SignUp.js"></script>
   <script src="Js/popup.js"></script>
 </body>
 </html>
