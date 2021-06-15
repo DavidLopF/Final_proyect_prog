@@ -65,6 +65,20 @@
         <h3>Owner</h3>
         <h4> Sign In</h4>
         <form action="">
+
+          <div class="contenedor-inputs">
+              <i class="fas fa-user icon"></i>
+            <input class="User Input"type="text" id="userOwner" placeholder="User Name" name="USRNAME">
+              <i class="fas fa-lock-open icon"></i>
+            <input class="User Input" type="text" id="passOwner" placeholder="Password" name="PASSWORD">
+            <h5>You have not yet registered?</h5>
+            <a href="owneRegister.html" class="RegiOFF">Click Here</a>
+          </div>
+          <input type="button" onclick="verificationLoginOwner()" class="btn-submit" value="Sign In">
+        </div>
+        </form>
+      
+
             <div class="contenedor-inputs">
                 <i class="fas fa-user icon"></i>
                 <input class="User Input" type="text" placeholder="User Name" name="USRNAME" id="userOwner">
@@ -151,6 +165,7 @@
 
 <script src="Js/SingIn.js" type="text/javascript"></script>
 <script src="Js/popup.js"></script>
+    <script src="Js/SingIn.js"></script>
 </body>
 
 </html>
