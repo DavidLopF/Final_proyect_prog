@@ -1,7 +1,7 @@
-var btnAbrirPopup = document.getElementById('bton-owner'),
-overlay = document.getElementById('overlay'),
-popup = document.getElementById('popup'),
-btnCerrarPopup = document.getElementById('btn-cerrar-popup');
+	var btnAbrirPopup = document.getElementById('bton-owner'),
+	overlay = document.getElementById('overlay'),
+	popup = document.getElementById('popup'),
+	btnCerrarPopup = document.getElementById('btn-cerrar-popup');
 
 ///////////////////////////////////////////////////
     btnAbrirPopupVet = document.getElementById('bton-vet'),
@@ -15,7 +15,10 @@ btnCerrarPopup = document.getElementById('btn-cerrar-popup');
     popupOff = document.getElementById('popupOff'),
     btnCerrarPopupOff = document.getElementById('btn-cerrar-popupOff');
     
-	  
+	btnAbrirSignin = document.getElementById('bton-signin'), 
+    overlaySignin = document.getElementById('overlaySignin'),
+    popupSignin = document.getElementById('popupSignin'),
+    btnCerrarPopupSignin = document.getElementById('btn-cerrar-popupSignin');
 	
 
 btnAbrirPopup.addEventListener('click', function(){
@@ -49,4 +52,15 @@ btnCerrarPopupOff.addEventListener('click', function(e){
 	e.preventDefault();
 	overlayOff.classList.remove('active');
 	popupOff.classList.remove('active');
+});
+
+btnAbrirSignin.addEventListener('click', function(){
+	overlaySignin.classList.add('active');
+	popupSignin.classList.add('active');
+});
+
+btnCerrarPopupSignin.addEventListener('click', function(e){
+	e.preventDefault();
+	overlaySignin.classList.remove('active');
+	popupSignin.classList.remove('active');
 });
