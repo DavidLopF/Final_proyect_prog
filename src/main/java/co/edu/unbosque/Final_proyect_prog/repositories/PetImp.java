@@ -1,8 +1,10 @@
 package co.edu.unbosque.Final_proyect_prog.repositories;
 
+import co.edu.unbosque.Final_proyect_prog.entities.Owner;
 import co.edu.unbosque.Final_proyect_prog.entities.Pet;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class PetImp implements PetRepository{
     private EntityManager entityManager;
@@ -20,4 +22,7 @@ public class PetImp implements PetRepository{
             e.printStackTrace();
         }
     }
+
+
+
 }
