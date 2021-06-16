@@ -1,5 +1,6 @@
 package co.edu.unbosque.Final_proyect_prog.entities;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -25,7 +26,9 @@ public class Pet implements Serializable {
     private String sex;
     @Column(name = "Owner_id")
     private Integer owner_id;
-
+    @Column(name = "pictureUrl")
+    private String picture;
+    @JsonbTransient
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "user_name")
     private Owner owner;
@@ -35,13 +38,14 @@ public class Pet implements Serializable {
 
 
 
-    public Pet(long microchip, String name, String species, String race, String size, String sex) {
+    public Pet(long microchip, String name, String species, String race, String size, String sex, String pictureUrl) {
         this.microchip = microchip;
         this.name = name;
         this.species = species;
         this.race = race;
         this.size = size;
         this.sex = sex;
+        this.picture = pictureUrl;
     }
 
 
@@ -59,7 +63,13 @@ public class Pet implements Serializable {
         p.setPet_id(0);
     }
 
+    public String getPicture() {
+        return picture;
+    }
 
+    public void setPicture(String picture) {
+        this.picture = picture;
+    }
 
     public Integer getName_id() {
         return name_id;

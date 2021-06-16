@@ -1,5 +1,6 @@
 package co.edu.unbosque.Final_proyect_prog.entities;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.List;
 @Table(name = "Owner")
 public class Owner implements Serializable {
     @Id
+    @JsonbTransient
     @OneToOne
     private UserApp userApp;
 
@@ -22,6 +24,7 @@ public class Owner implements Serializable {
 
     @Column(name = "Neighborhood")
     private String neighborhood;
+
 
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Pet> pets;

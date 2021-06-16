@@ -24,10 +24,6 @@ public class OwnerImp implements OwnerRepository{
         }
     }
 
-    @Override
-    public List<Owner> findById(Integer id) {
-        return entityManager.createQuery("from Owner where person_id  = " + id).getResultList();
-    }
 
     @Override
     public Optional<Owner> findByUsername(String username) {
@@ -35,6 +31,24 @@ public class OwnerImp implements OwnerRepository{
         return owner != null ? Optional.of(owner) : Optional.empty();
     }
 
+    @Override
+    public void modify(String username,String name, String address, String neighborhood) {
+        Owner owner = entityManager.find(Owner.class, username);
+        if(owner!=null){
+            try {
+                entityManager.getTransaction().begin();
+                owner.setName(name);
+                owner.setAddress(address);
+                owner.setNeighborhood(neighborhood);
+                entityManager.getTransaction().commit();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+
+            }
+        }
+
+    }
 
 
 }

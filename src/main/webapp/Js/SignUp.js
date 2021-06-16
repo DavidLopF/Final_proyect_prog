@@ -6,6 +6,7 @@ function sendDataOwner() {
     var neighborhood = document.getElementById("neighborhood").value
     var passsword = document.getElementById("pwrd").value
     var confirmPassword = document.getElementById("confirm").value
+    var username =document.getElementById("username").value
 
 
     if(passsword != confirmPassword){
@@ -33,6 +34,16 @@ function sendDataOwner() {
 
     }
 }
+function leerCookie(nombre) {
+    var lista = document.cookie.split(";");
+    for (i in lista) {
+        var busca = lista[i].search(nombre);
+        if (busca > -1) {micookie=lista[i]}
+    }
+    var igual = micookie.indexOf("=");
+    var valor = micookie.substring(igual+1);
+    return valor;
+}
 function uploadPicture(){
     var fileName = document.getElementById("file").files[0].name
     var microship = document.getElementById("microship").value
@@ -41,17 +52,20 @@ function uploadPicture(){
     var race = document.getElementById("race").value
     var size = document.getElementById("size").value
     var sex = document.getElementById("sex").value
-    var userOwner = document.cookie
-    console.log(userOwner)
+    var userOwner = document.cookie.split(";")
+
+    var finalUsername = leerCookie("userName")
+
     var form = new FormData(document.getElementById("file2"))
     var http = new XMLHttpRequest()
     var uri = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets/pictures/upload/'
         + microship + '/' + name + "/" + specie + '/' + race +'/'+size+'/'+sex
-        +  '/' + fileName + '/' + userOwner
+        +  '/' + fileName + '/' + finalUsername
     http.open("POST", uri, true)
     http.onreadystatechange = function () {
         if (http.readyState == 4 && http.status == 201) {
-            alert("picture created successfully")
+            alert("picture and pet created successfully")
+            window.location("functionOwner.html")
         } else if (http.readyState == 4 && http.status == 406) {
             alert("you should check all input for this form: \n" +
                 "    -This inputs don´t shoudl null.\n" +

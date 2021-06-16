@@ -22,9 +22,6 @@ public class PictureService {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-
-
-
         pictureImp = new PictureImp(entityManager);
         List<Picture> pictures = pictureImp.obtenerDadoNombreImagen(filename);
 
