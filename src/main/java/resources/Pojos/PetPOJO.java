@@ -1,6 +1,8 @@
 package resources.Pojos;
 
 public class PetPOJO {
+    private int id;
+    private String owner;
     private long microship;
     private String name;
     private String specie;
@@ -8,7 +10,9 @@ public class PetPOJO {
     private String size;
     private String sex;
 
-    public PetPOJO(long microship, String name, String specie, String race, String size, String sex) {
+    public PetPOJO(int id, String owner, long microship, String name, String specie, String race, String size, String sex) {
+        this.id = id;
+        this.owner = owner;
         this.microship = microship;
         this.name = name;
         this.specie = specie;
@@ -63,5 +67,21 @@ public class PetPOJO {
 
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
