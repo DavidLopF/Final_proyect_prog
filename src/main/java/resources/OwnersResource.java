@@ -39,15 +39,21 @@ public class OwnersResource {
     }
 
     @PUT
-    @Path("/{name}/{address}/{neighborhood}")
+    @Path("/{username}/{name}/{address}/{neighborhood}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response modify(@PathParam("name") String name,
                            @PathParam("address") String address,
-                           @PathParam("neighborhood") String neighborhood){
+                           @PathParam("neighborhood") String neighborhood,
+                           @PathParam("username") String username){
 
         OwnerService ownerService = new OwnerService();
+        if(ownerService.modifyOwner(username,name,address,neighborhood)){
+            return Response.status(Response.Status.CREATED).build();
+        }else{
+            return Response.status(Response.Status.NOT_ACCEPTABLE).build();
+        }
 
-        return null;
+
     }
 
 

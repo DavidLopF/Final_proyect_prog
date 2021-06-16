@@ -34,6 +34,31 @@ function sendDataOwner() {
 
     }
 }
+
+function modifyOwner(){
+    var address = document.getElementById("adress").value
+    var neighborhood = document.getElementById("neighborhood").value
+    var name = document.getElementById("name").value
+    var finalUsername = leerCookie("userName")
+    var url = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/' + finalUsername + '/' + name + "/"  + address +'/'+neighborhood
+    var http = new XMLHttpRequest()
+    http.open('PUT', url, true)
+    http.onreadystatechange = function () {
+
+        if (http.readyState == 4 && http.status == 201) {
+            alert("Owner modify successfully")
+        } else if (http.readyState == 4 && http.status == 406) {
+            alert("you should check all input for this form: \n" +
+                "    -This inputs don´t shoudl null")
+        } else if (http.readyState == 4 && http.status != 201 && http.status != 406) {
+            alert(http.responseText)
+        }else if(http.readyState == 4 && http.status != 404){
+            alert("Not found html ")
+        }
+    }
+    http.send()
+
+}
 function leerCookie(nombre) {
     var lista = document.cookie.split(";");
     for (i in lista) {
@@ -52,7 +77,6 @@ function uploadPicture(){
     var race = document.getElementById("race").value
     var size = document.getElementById("size").value
     var sex = document.getElementById("sex").value
-    var userOwner = document.cookie.split(";")
 
     var finalUsername = leerCookie("userName")
 

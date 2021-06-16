@@ -41,25 +41,26 @@
         <form action="" style="max-width:500px;margin:auto">
             
           <div class="inputBox">
-            <input type="text" name="name" required onkeyup="this.setAttribute('value', this.value);" value="">
+            <input type="text" id="name" name="name" required onkeyup="this.setAttribute('value', this.value);" value="">
             <label>Name and last name</label>
           </div>
 
           <div class="inputBox">
-            <input type="text" name="adress" required onkeyup="this.setAttribute('value', this.value);" value="">
+            <input type="text" id="adress" name="adress" required onkeyup="this.setAttribute('value', this.value);" value="">
             <label>Adress</label>
           </div>
 
           <div class="inputBox">
-            <input type="text" name="neighborhood" required onkeyup="this.setAttribute('value', this.value);" value="">
+            <input type="text" id="neighborhood" name="neighborhood" required onkeyup="this.setAttribute('value', this.value);" value="">
             <label>Neighborhood</label>
           </div>
 
-          <input type="submit" name="sign-in" value="Modificate owner">
+          <input type="button" onclick="modifyOwner()" name="sign-in" value="Modificate owner">
         </form>
       </div>
     </section>
     <script src="Js/popup.js"></script>
+    <script src="Js/SignUp.js"></script>
 
 </body>
 </html>

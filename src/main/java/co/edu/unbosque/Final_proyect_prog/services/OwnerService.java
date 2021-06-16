@@ -46,7 +46,9 @@ public class OwnerService{
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         ownerImp = new OwnerImp(entityManager);
-
-        return true;
+        boolean bandera =ownerImp.modify(username,name,address,neighborhood);
+        entityManager.close();
+        entityManagerFactory.close();
+        return bandera;
     }
 }
