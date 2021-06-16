@@ -1,10 +1,8 @@
 package co.edu.unbosque.Final_proyect_prog.repositories;
 
 import co.edu.unbosque.Final_proyect_prog.entities.Owner;
-import co.edu.unbosque.Final_proyect_prog.entities.UserApp;
 
 import javax.persistence.EntityManager;
-import java.util.List;
 import java.util.Optional;
 
 public class OwnerImp implements OwnerRepository{
@@ -32,7 +30,7 @@ public class OwnerImp implements OwnerRepository{
     }
 
     @Override
-    public void modify(String username,String name, String address, String neighborhood) {
+    public boolean modify(String username, String name, String address, String neighborhood) {
         Owner owner = entityManager.find(Owner.class, username);
         if(owner!=null){
             try {
@@ -41,11 +39,15 @@ public class OwnerImp implements OwnerRepository{
                 owner.setAddress(address);
                 owner.setNeighborhood(neighborhood);
                 entityManager.getTransaction().commit();
+                return true;
 
             } catch (Exception e) {
                 e.printStackTrace();
+                return false;
 
             }
+        }else{
+            return false;
         }
 
     }

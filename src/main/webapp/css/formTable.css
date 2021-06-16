@@ -9,7 +9,12 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
+.buttons{
+    margin-top: 30px;
 
+    display: flex;
+    justify-content: center;
+}
 
 li, a, button {
     font-family: "Montserrat", sans-serif;
