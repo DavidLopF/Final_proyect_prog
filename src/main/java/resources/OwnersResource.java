@@ -38,6 +38,19 @@ public class OwnersResource {
         }
     }
 
+    @PUT
+    @Path("/{name}/{address}/{neighborhood}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response modify(@PathParam("name") String name,
+                           @PathParam("address") String address,
+                           @PathParam("neighborhood") String neighborhood){
+
+        OwnerService ownerService = new OwnerService();
+
+        return null;
+    }
+
+
 
     @Logged
     @GET

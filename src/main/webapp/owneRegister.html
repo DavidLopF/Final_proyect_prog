@@ -41,40 +41,40 @@
         <form action="/action_page.php" style="max-width:500px;margin:auto">
           <div class="input-container">
             <i class="fa fa-user icon"></i>
-            <input class="input-field" type="text" placeholder="Name and last name" name="usrnm">
+            <input class="input-field" type="text" id="usrnm" placeholder="Name and last name" name="usrnm">
           </div>
         
           <div class="input-container">
             <i class="fa fa-envelope icon"></i>
-            <input class="input-field" type="text" placeholder="Email" name="email">
+            <input class="input-field" type="text" id="Email" placeholder="Email" name="email">
           </div>
 
           <div class="input-container">
             <i class="fas fa-map-marked-alt icon"></i>
-            <input class="input-field" type="text" placeholder="Adress" name="Adress">
+            <input class="input-field" type="text" id="Adress" placeholder="Adress" name="Adress">
           </div>
 
           <div class="input-container">
             <i class="fas fa-location-arrow icon"></i>
-            <input class="input-field" type="text" placeholder="Neighborhood" name="neighborhood">
+            <input class="input-field" type="text" id="neighborhood" placeholder="Neighborhood" name="neighborhood">
           </div>
 
           <div class="input-container">
             <i class="fas fa-user-alt icon"></i>
-            <input class="input-field" type="text" placeholder="Username" name="username">
+            <input class="input-field" type="text" id="username" placeholder="Username" name="username">
           </div>
           
           <div class="input-container">
             <i class="fas fa-lock-open icon"></i>
-            <input class="input-field" type="password" placeholder="Password" name="pwrd">
+            <input class="input-field" type="password" id="pwrd" placeholder="Password" name="pwrd">
           </div>
 
           <div class="input-container">
             <i class="fas fa-lock icon"></i>
-            <input class="input-field" type="password" placeholder="Confirm password" name="Confirm">
+            <input class="input-field" type="password" id="confirm" placeholder="Confirm password" name="Confirm">
           </div>
         
-          <button type="submit" class="btn">Send</button>
+          <button type="button" onclick="sendDataOwner()" class="btn">Send</button>
         </form>
       </div>
     </section>
@@ -107,6 +107,7 @@
       </div>
     </div>
     <script src="Js/popup.js"></script>
+    <script src="Js/SignUp.js"></script>
 
 </body>
 </html>

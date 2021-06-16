@@ -24,9 +24,9 @@ public class OwnerService{
             userAppImp = new UserAppImp(entityManager);
             ownerImp = new OwnerImp(entityManager);
             int num = 1;
-            do{
+
                 num = (int)(Math.random()*(10000+0));
-            }while(ownerImp.findById(num)!=null);
+
 
             UserApp userApp = new UserApp(user.getUserName(), user.getPassword(), user.getEmail(), user.getRole());
             userAppImp.save(userApp);
@@ -40,5 +40,13 @@ public class OwnerService{
         }else{
             return false;
         }
+    }
+
+    public boolean modifyOwner(String username, String name,  String address, String neighborhood){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        ownerImp = new OwnerImp(entityManager);
+
+        return true;
     }
 }

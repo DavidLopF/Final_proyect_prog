@@ -35,7 +35,7 @@ public class PetService {
 
             Optional<Owner> owner = ownerImp.findByUsername(username);
 
-            Pet pet = new Pet(microship,name,specie,race,size,sex);
+            Pet pet = new Pet(microship,name,specie,race,size,sex,pojo.getNamePicture());
             owner.ifPresent(a ->{
                 a.addPet(pet);
                 pet.setOwner_id(a.getPerson_id());
@@ -49,6 +49,15 @@ public class PetService {
             return false;
         }
 
+    }
+
+    public List<Pet> listPets(String username){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        petImp = new PetImp(entityManager);
+
+        List<Pet> pets = petImp.listByUsername(username);
+        return pets;
     }
 
 

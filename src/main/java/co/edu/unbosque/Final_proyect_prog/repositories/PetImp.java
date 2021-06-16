@@ -23,6 +23,10 @@ public class PetImp implements PetRepository{
         }
     }
 
+    public List listByUsername(String username){
+        return entityManager.createQuery("SELECT c FROM Pet c WHERE c.owner.userApp.userName LIKE :petUser").setParameter("petUser",username).getResultList();
+    }
+
 
 
 }
