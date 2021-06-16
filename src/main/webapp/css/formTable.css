@@ -181,6 +181,20 @@ header .cta button:hover {
   
 }
 
+.cta1 button {
+
+    padding: 9px 25px;
+    background-color: rgba(172, 141, 230, 0.829);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.cta1 button:hover {
+    background-color: rgba(56, 71, 206, 0.712);
+}
+
 .popup input[type="button"]:hover {
   background-color: #181f22;
 }

@@ -26,4 +26,22 @@ public class VetRepositoryImp implements VetRepository {
         }
 
     }
+
+    @Override
+    public boolean update(String userName, String address, String neighborhood) {
+        boolean flag = false;
+        Vet finedVet = entityManager.find(Vet.class, userName);
+        if (finedVet != null) {
+            try {
+                entityManager.getTransaction().begin();
+                finedVet.setAddress(address);
+                finedVet.setNeighborhood(neighborhood);
+                entityManager.getTransaction().commit();
+                flag = true;
+            } catch (Exception e) {
+               e.printStackTrace();
+            }
+        }
+        return flag;
+    }
 }

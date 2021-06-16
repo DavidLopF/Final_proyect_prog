@@ -6,6 +6,7 @@ import co.edu.unbosque.Final_proyect_prog.entities.Picture;
 import co.edu.unbosque.Final_proyect_prog.repositories.OwnerImp;
 import co.edu.unbosque.Final_proyect_prog.repositories.PetImp;
 import co.edu.unbosque.Final_proyect_prog.repositories.PictureImp;
+import resources.Pojos.PetPOJO;
 import resources.Pojos.PicturePojo;
 
 import javax.persistence.EntityManager;
@@ -24,8 +25,8 @@ public class PetService {
     private OwnerImp ownerImp;
 
     public boolean createPet(PicturePojo pojo, String name, long microship,
-                             String specie, String race, String size, String sex, String username){
-        if(!pojo.getDate().isEmpty()&&!pojo.getDescription().isEmpty()&&!pojo.getNamePicture().isEmpty()){
+                             String specie, String race, String size, String sex, String username) {
+        if (!pojo.getDate().isEmpty() && !pojo.getDescription().isEmpty() && !pojo.getNamePicture().isEmpty()) {
             EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
             EntityManager entityManager = entityManagerFactory.createEntityManager();
 
@@ -35,32 +36,38 @@ public class PetService {
 
             Optional<Owner> owner = ownerImp.findByUsername(username);
 
-            Pet pet = new Pet(microship,name,specie,race,size,sex,pojo.getNamePicture());
-            owner.ifPresent(a ->{
+            Pet pet = new Pet(microship, name, specie, race, size, sex, pojo.getNamePicture());
+            owner.ifPresent(a -> {
                 a.addPet(pet);
                 pet.setOwner_id(a.getPerson_id());
                 pet.setOwner(a);
             });
-            Picture picture = new Picture(pet,pojo.getNamePicture(),pojo.getDescription(),pojo.getDate());
+            Picture picture = new Picture(pet, pojo.getNamePicture(), pojo.getDescription(), pojo.getDate());
             petImp.save(pet);
             pictureImp.save(picture);
             return true;
-        }else{
+        } else {
             return false;
         }
 
     }
 
-    public List<Pet> listPets(String username){
+    public List<PetPOJO> listPets(String username) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         petImp = new PetImp(entityManager);
 
         List<Pet> pets = petImp.listByUsername(username);
-        return pets;
+        List<PetPOJO> petPOJOS = new ArrayList<>();
+
+        for (Pet pet : pets) {
+            petPOJOS.add(new PetPOJO(pet.getName_id(),pet.getOwner().getUserApp().getUserName(),
+                    pet.getMicrochip(), pet.getName(), pet.getSpecies(), pet.getRace(), pet.getSize(), pet.getSex()));
+        }
+
+
+        return petPOJOS;
     }
-
-
 
 
 }

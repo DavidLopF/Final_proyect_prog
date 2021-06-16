@@ -46,7 +46,7 @@ public class PetResource {
     @Path("/{username}")
     public Response listPets(@PathParam("username") String username){
         PetService petService = new PetService();
-        List<Pet> pets = petService.listPets(username);
+        List<PetPOJO> pets = petService.listPets(username);
 
         return Response.ok().entity(pets).build();
     }

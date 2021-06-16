@@ -31,6 +31,21 @@ public class VetResource {
 
     }
 
+    @PUT
+    @Path("/{userName}/{address}/{neighborhood}")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response update(@PathParam("userName") String userName,
+                           @PathParam("address") String address,
+                           @PathParam("neighborhood") String neighborhood) {
+        VetService vetService = new VetService();
+        if (vetService.updateVet(userName, address, neighborhood)) {
+            return Response.ok().entity("melo mi perro").build();
+        } else {
+            return Response.status(Response.Status.FORBIDDEN).build();
+        }
+
+    }
+
     @Logged
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -42,7 +57,7 @@ public class VetResource {
                     .entity("Role " + role + " cannot access to this method")
                     .build();
 
-        return  Response.ok()
+        return Response.ok()
                 .entity(role + ":" + userName).build();
     }
 }

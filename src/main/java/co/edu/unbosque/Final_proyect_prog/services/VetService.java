@@ -40,4 +40,22 @@ public class VetService {
         }
         return flag;
     }
+
+    public boolean updateVet(String userName, String addres, String neighborhood) {
+        boolean flag = false;
+
+        if (!userName.isEmpty() && !addres.isEmpty() && !neighborhood.isEmpty()) {
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+            vetRepositoryImp = new VetRepositoryImp(entityManager);
+
+            if (vetRepositoryImp.update(userName, addres, neighborhood)) {
+                flag = true;
+            }
+
+        }
+        return flag;
+    }
+
 }
