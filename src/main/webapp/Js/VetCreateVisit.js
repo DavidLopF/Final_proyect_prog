@@ -62,25 +62,41 @@ function sendDataVisit() {
 
 
     if (micro != "") {
-        if (!micro != "" && create_at != "" && description != "") {
-
+        if (micro != "" && create_at != "" && description != "") {
+            var uri = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/vet/visit/' + pet_id + '/' + vet_id + '/'
+                + type + '/' + create_at + '/' + description + '/' + micro
+            http.open("POST", uri, true)
+            http.onreadystatechange = () => {
+                if (http.readyState == 4 && http.status == 201) {
+                    alert("Visit created successfully")
+                    window.location.reload()
+                } else if (http.readyState == 4 && http.status != 201) {
+                    alert(http.responseText)
+                }
+            }
+            http.send()
         } else {
             alert("this form have null inputs !!")
         }
     } else {
-        var uri = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/vet/visit/' + pet_id + '/' + vet_id + '/'
-            + type + '/' + create_at + '/' + description
-        http.open("POST", uri, true)
-        http.onreadystatechange = () => {
-            if (http.readyState == 4 && http.status == 201) {
-                alert("Visit created successfully")
-                window.location.reload()
-            } else if (http.readyState == 4 && http.status != 201) {
-                alert(http.responseText)
+        if (create_at != "" && description != "") {
+            var uri = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/vet/visit/' + pet_id + '/' + vet_id + '/'
+                + type + '/' + create_at + '/' + description
+            http.open("POST", uri, true)
+            http.onreadystatechange = () => {
+                if (http.readyState == 4 && http.status == 201) {
+                    alert("Visit created successfully")
+                    window.location.reload()
+                } else if (http.readyState == 4 && http.status != 201) {
+                    alert("this pet is already sterilized")
+                }
             }
+
+            http.send()
+        } else {
+            alert("this form have null inputs !!")
         }
 
-        http.send()
 
     }
 }

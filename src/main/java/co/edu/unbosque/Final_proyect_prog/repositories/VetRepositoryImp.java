@@ -1,8 +1,11 @@
 package co.edu.unbosque.Final_proyect_prog.repositories;
 
+import co.edu.unbosque.Final_proyect_prog.entities.Pet;
 import co.edu.unbosque.Final_proyect_prog.entities.Vet;
+import co.edu.unbosque.Final_proyect_prog.entities.Visit;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 import java.util.Optional;
 
 public class VetRepositoryImp implements VetRepository {
@@ -12,8 +15,6 @@ public class VetRepositoryImp implements VetRepository {
     public VetRepositoryImp(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
-
-
 
 
     @Override
@@ -35,6 +36,8 @@ public class VetRepositoryImp implements VetRepository {
         }
 
     }
+
+
 
     @Override
     public boolean update(String userName, String address, String neighborhood) {
