@@ -61,6 +61,25 @@ public class PetService {
     }
 
     public List<PetPOJO> listPetsByUsername(String username) {
+
+
+    public List<PetPOJO> listAllPets() {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        petImp = new PetImp(entityManager);
+
+        List<Pet> pets = petImp.findAll();
+        List<PetPOJO> petPOJOS = new ArrayList<PetPOJO>();
+
+        for (Pet pet : pets) {
+            petPOJOS.add(new PetPOJO(pet.getName_id(), pet.getOwner().getUserApp().getUserName(),
+                    pet.getMicrochip(), pet.getName(), pet.getSpecies(), pet.getRace(), pet.getSize(), pet.getSex(), pet.getPicture()));
+        }
+
+        return petPOJOS;
+    }
+
+    public List<PetPOJO> listPets(String username) {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         petImp = new PetImp(entityManager);
@@ -71,6 +90,9 @@ public class PetService {
         for (Pet pet : pets) {
             petPOJOS.add(new PetPOJO(pet.getName_id(),pet.getOwner().getUserApp().getUserName(),
                     pet.getMicrochip(), pet.getName(), pet.getSpecies(), pet.getRace(), pet.getSize(), pet.getSex(),pet.getPicture()));
+
+            petPOJOS.add(new PetPOJO(pet.getName_id(), pet.getOwner().getUserApp().getUserName(),
+                    pet.getMicrochip(), pet.getName(), pet.getSpecies(), pet.getRace(), pet.getSize(), pet.getSex()));
         }
 
 

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/tableVisitVet.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <title>Pets Table</title>
+</head>
+
+<body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+
+<header>
+    <img class="logo" src="https://i.ibb.co/ckDdYBB/Ciudadados-de-4-Patas.png" alt="logo">
+    <nav>
+        <ul class="nav_links">
+            <li><a href="funtionOwner.html">Home</a></li>
+            <li><a href="" id="">View visits</a></li>
+        </ul>
+    </nav>
+    <a class="cta1" href="contact.html">
+        <button>Contact</button>
+    </a>
+    <nav>
+        <ul class="nav_links">
+            <li><a href="index.html" id="bton-signin">Log out</a></li>
+        </ul>
+    </nav>
+</header>
+
+</nav>
+<div class="table-container" id="table-container">
+    <table class="table table-primary table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Microchip</th>
+            <th>Name</th>
+            <th>Specie</th>
+            <th>Race</th>
+            <th>Size</th>
+            <th>Sex</th>
+            <th>Picture</th>
+            <th>Visit</th>
+        </tr>
+        </thead>
+        <tbody id="res">
+
+
+        </tbody>
+    </table>
+
+</div>
+
+<div class="buttons">
+
+</div>
+
+<div class="overlay" id="overlay" style="visibility: hidden">
+    <div class="popup" id="popup">
+        <a href="#" id="cerrar" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+        <h3>Create visit</h3>
+        <form action="" style="max-width:500px;margin:auto">
+            <div class="inputBox">
+                <select name="visit" id="visit" required value=""
+                        onkeyup="this.setAttribute('value', this.value);">
+                    <option value="sterilization">Sterilization</option>
+                    <option value="microchip" id="microchip">Microchip implantation</option>
+                    <option value="vaccination" id="vac">Vaccination</option>
+                    <option value="deworming" id="dew">Deworming</option>
+                    <option value="urgency">Urgency</option>
+                    <option value="control">Control</option>
+                </select>
+            </div>
+
+            <div class="inputBox">
+                <input type="text" id="microchi" name="microchi" disabled=true required
+                       onkeyup="this.setAttribute('value', this.value);" value="">
+                <label>Microchip</label>
+            </div>
+            <div class="inputBox">
+                <input type="text" id="createAT" name="creatAT" required
+                       onkeyup="this.setAttribute('value', this.value);" value="">
+                <label>create at</label>
+            </div>
+
+            <div class="inputBox">
+                <textarea id="description" class="input" name="description" rows="7" cols="30"></textarea><br/>
+                <label>Description:</label>
+            </div>
+
+
+            <input type="button" name="sign-in" value="Create case" onclick="sendDataVisit()">
+        </form>
+    </div>
+</div>
+
+<script src="Js/VetCreateVisit.js" type="text/javascript"></script>
+<script>
+    document.getElementById("visit").onchange = function () {
+        if (this.value == 'microchip') {
+            document.getElementById("microchi").disabled = false;
+        } else
+            document.getElementById("microchi").disabled = true;
+            document.getElementById("microchi").value = ""
+    }
+</script>
+
+</body>
+
+</html>

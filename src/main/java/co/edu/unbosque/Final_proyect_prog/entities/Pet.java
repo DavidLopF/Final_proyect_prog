@@ -3,13 +3,14 @@ package co.edu.unbosque.Final_proyect_prog.entities;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "Pet")
 public class Pet implements Serializable {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Name_id")
     private Integer name_id;
     @Column(name = "Microship")
@@ -29,13 +30,16 @@ public class Pet implements Serializable {
     @Column(name = "pictureUrl")
     private String picture;
     @JsonbTransient
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_name")
     private Owner owner;
 
-    @OneToMany(mappedBy = "pet",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<PetCase> cases;
+    @OneToMany(mappedBy = "pet",  cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PetCase> cases = new ArrayList<PetCase>();
 
+
+    @OneToMany(mappedBy = "pet",  cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Visit> visits = new ArrayList<Visit>();
 
 
     public Pet(long microchip, String name, String species, String race, String size, String sex, String pictureUrl) {
@@ -49,18 +53,22 @@ public class Pet implements Serializable {
     }
 
 
-    public Pet(){
+    public Pet() {
 
     }
 
-    public void addCase(PetCase p){
+    public void addCase(PetCase p) {
         cases.add(p);
         p.setPet_id(this.getName_id());
     }
 
-    public void removeCase(PetCase p){
+    public void removeCase(PetCase p) {
         cases.remove(p);
         p.setPet_id(0);
+    }
+
+    public void addVisit(Visit visit) {
+        visits.add(visit);
     }
 
     public String getPicture() {
@@ -145,6 +153,7 @@ public class Pet implements Serializable {
         this.owner = owner;
     }
 
+
     @Override
     public String toString() {
         return "Pet{" +
@@ -160,5 +169,11 @@ public class Pet implements Serializable {
                 ", owner=" + owner +
                 ", cases=" + cases +
                 '}';
+    public List<Visit> getVisits() {
+        return visits;
+    }
+
+    public void setVisits(List<Visit> visits) {
+        this.visits = visits;
     }
 }

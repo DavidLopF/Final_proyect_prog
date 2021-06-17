@@ -1,10 +1,12 @@
 package co.edu.unbosque.Final_proyect_prog.repositories;
 
-import co.edu.unbosque.Final_proyect_prog.entities.Owner;
 import co.edu.unbosque.Final_proyect_prog.entities.Pet;
 import co.edu.unbosque.Final_proyect_prog.entities.PetCase;
 import org.hibernate.Criteria;
 import org.hibernate.jpa.QueryHints;
+
+import co.edu.unbosque.Final_proyect_prog.entities.Vet;
+import co.edu.unbosque.Final_proyect_prog.entities.Visit;
 
 import javax.persistence.EntityManager;
 import javax.persistence.QueryHint;
@@ -19,6 +21,8 @@ public class PetImp implements PetRepository{
     }
 
     public Optional<Pet> finById(Integer id){
+
+    public Optional<Pet> findByUserName(int id) {
         Pet pet = entityManager.find(Pet.class, id);
         return pet != null ? Optional.of(pet) : Optional.empty();
     }
@@ -48,6 +52,7 @@ public class PetImp implements PetRepository{
         }
     }
 
+
     @Override
     public boolean modify(String name, long microchip, String specie,String size, String race, String sex, Integer id) {
         Pet pet = entityManager.find(Pet.class, id);
@@ -73,6 +78,22 @@ public class PetImp implements PetRepository{
 
     public List listAllPets(){
         return entityManager.createQuery("FROM Pet").getResultList();
+    }
+    public boolean haveSterilization(int pet_id) {
+        Pet pet = entityManager.find(Pet.class, pet_id);
+        boolean flag = false;
+
+        for (Visit visit : pet.getVisits()) {
+            if (visit.getType().equals("sterilization")) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
+
+    @Override
+    public List<Pet> findAll() {
+        return entityManager.createQuery("from Pet").getResultList();
     }
 
     public List listByUsername(String username){

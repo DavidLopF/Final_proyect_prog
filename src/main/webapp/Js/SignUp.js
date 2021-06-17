@@ -21,6 +21,7 @@ function sendDataOwner() {
 
             if (http.readyState == 4 && http.status == 201) {
                 alert("Owner created successfully")
+                window.location.href = "index.html"
             } else if (http.readyState == 4 && http.status == 406) {
                 alert("you should check all input for this form: \n" +
                     "    -This inputs don´t shoudl null")
@@ -167,6 +168,7 @@ function createPet(){
 
         if (http.readyState == 4 && http.status == 201) {
             alert("Pet created successfully")
+
         } else if (http.readyState == 4 && http.status == 406) {
             alert("you should check all input for this form: \n" +
                 "    -This inputs don´t shoudl null")
@@ -235,7 +237,7 @@ function sendDataOficial() {
 
             if (http.readyState == 4 && http.status == 201) {
                 alert("Oficial created successfully")
-                window.location("index.html")
+                window.location.href = "index.html"
             } else if (http.readyState == 4 && http.status == 406) {
                 alert("you should check all input for this form: \n" +
                     "    -This inputs don´t shoudl null.\n" +
@@ -267,7 +269,7 @@ function sendDataVet() {
         http.onreadystatechange = function () {
             if (http.readyState == 4 && http.status == 201) {
                 alert("Vet created successfully")
-                window.location("index.html")
+                window.location.href = "index.html"
             } else if (http.readyState == 4 && http.status == 406) {
                 alert("you should check all input for this form: \n" +
                     "    -This inputs don´t shoudl null.\n" +
