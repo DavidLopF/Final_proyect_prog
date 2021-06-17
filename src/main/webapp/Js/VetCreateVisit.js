@@ -2,10 +2,11 @@ var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = () => {
     if (xhr.readyState == 4) {
         var data = JSON.parse(xhr.responseText)
+        console.log(data)
         var tbody = document.getElementById("res")
         var cont = ""
         for (let i = 0; i < data.length; i++) {
-            var ruta = data[i].image.split('\\')
+            var ruta = data[i].url.split('\\')
             var imagen = ruta[ruta.length - 2] + '/' + ruta[ruta.length - 1];
             cont += data[i].id + "/"
             imagen = imagen.split("/")
@@ -30,7 +31,7 @@ xhr.onreadystatechange = () => {
 
     }
 }
-xhr.open("GET", 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets', true)
+xhr.open("GET", 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets/list', true)
 xhr.send()
 
 function createListener(id) {
@@ -53,7 +54,6 @@ function createListener(id) {
 
 function sendDataVisit() {
     var micro = document.getElementById("microchi").value
-    var create_at = document.getElementById("createAT").value
     var description = document.getElementById("description").value
     var type = document.getElementById("visit").value
     var pet_id = leerCookie('pet_id')
@@ -62,7 +62,7 @@ function sendDataVisit() {
 
 
     if (micro != "") {
-        if (micro != "" && create_at != "" && description != "") {
+        if (micro != ""  && description != "") {
             var uri = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/vet/visit/' + pet_id + '/' + vet_id + '/'
                 + type + '/' + description + '/' + micro
             http.open("POST", uri, true)
@@ -79,7 +79,7 @@ function sendDataVisit() {
             alert("this form have null inputs !!")
         }
     } else {
-        if (create_at != "" && description != "") {
+        if (description != "") {
             var uri = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/vet/visit/' + pet_id + '/' + vet_id + '/'
                 + type + '/' + description
             http.open("POST", uri, true)

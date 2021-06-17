@@ -90,6 +90,7 @@ public class PetResource {
     public Response getByParameter(@PathParam("param") String param){
         return null;
     }
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{username}/{param}")
