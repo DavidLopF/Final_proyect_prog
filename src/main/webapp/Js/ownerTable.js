@@ -11,6 +11,10 @@ function leerCookie(nombre) {
     return valor;
 }
 
+function crearCookie(value){
+    document.cookie = "selectedButton="+value
+}
+
 function printTable() {
     var finalUsername = leerCookie("userName")
     var xhr = new XMLHttpRequest();
@@ -18,8 +22,16 @@ function printTable() {
         if (xhr.readyState == 4) {
             var data = JSON.parse(xhr.responseText);
             console.log(data)
+            var cont = ""
             var tbodyRef = document.getElementById("res")
             for (let i = 0; i < data.length; i++) {
+                console.log(data[i].url)
+                var ruta = data[i].url.split('\\')
+                var imagen = ruta[ruta.length-2]+'/'+ruta[ruta.length-1];
+                cont += data[i].id + "/"
+
+                imagen = imagen.split("/")
+                imagen = imagen[imagen.length-2]+"/"+imagen[imagen.length-1]
 
                 tbodyRef.innerHTML += `
                 <tr>
@@ -30,13 +42,13 @@ function printTable() {
                 <td>${data[i].race}</td>
                 <td>${data[i].size}</td>
                 <td>${data[i].sex}</td>
+                <td><img src="${'images/'+data[i].url}", width="100", height="100" style="border-radius: 2px"></td>
                 <td>
-                  <a class= "cta" href="#" id=""><button>Create Visit</button></a>
+                  <a class= "cta"  href="#" id=""><button onclick="crearCookie(${data[i].id})">Modify</button></a>
                 </td>
                 <td>
-                <a class= "cta1" href="#" id=""><button>Case</button></a>
-                </td>
-                
+                <a class= "cta1" href="#" id=""><button onclick="crearCookie(${data[i].id})">Case</button></a>
+                </td>   
                 </tr>`
             }
             createListener()

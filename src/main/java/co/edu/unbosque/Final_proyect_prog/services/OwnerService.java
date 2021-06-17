@@ -9,6 +9,7 @@ import resources.Pojos.UserAppPOJO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
 import java.util.Random;
 
 public class OwnerService{
@@ -50,5 +51,14 @@ public class OwnerService{
         entityManager.close();
         entityManagerFactory.close();
         return bandera;
+    }
+
+    public List listByNeigth(String neight){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        ownerImp = new OwnerImp(entityManager);
+        List<Owner> owners = ownerImp.listByNeight(neight);
+        return owners;
+
     }
 }

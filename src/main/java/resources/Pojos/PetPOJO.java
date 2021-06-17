@@ -9,9 +9,11 @@ public class PetPOJO {
     private String race;
     private String size;
     private String sex;
+    private String url;
+
     private String image;
 
-    public PetPOJO(int id, String owner, long microship, String name, String specie, String race, String size, String sex) {
+    public PetPOJO(int id, String owner, long microship, String name, String specie, String race, String size, String sex, String url) {
         this.id = id;
         this.owner = owner;
         this.microship = microship;
@@ -20,6 +22,15 @@ public class PetPOJO {
         this.race = race;
         this.size = size;
         this.sex = sex;
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public PetPOJO(int id, String owner, long microship, String name, String specie, String race, String size, String sex, String image) {

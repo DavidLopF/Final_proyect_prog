@@ -43,19 +43,21 @@ public class PictureResource {
                 filename = parseFileName(headers,username);
 
                 InputStream stream = inputPart.getBody(InputStream.class,null);
-
+                saveFile2(stream,filename,servletContext);
                 saveFile(stream,filename,servletContext);
+
 
             } catch (IOException e) {
                 e.printStackTrace();
                 return Response.status(400).build();
             }
         }
+
         Date date = new Date();
         String dataRegister = date.toString();
         String pictureNameFinal = username+pictureName;
         String pDescription = "Pet name: " + name + "\nRegistred at " + date;
-        PicturePojo picturePojo = new PicturePojo(pDescription, path, dataRegister);
+        PicturePojo picturePojo = new PicturePojo(pDescription, fileNameFinal, dataRegister);
         PetService petService = new PetService();
         if (petService.createPet(picturePojo,name,microship,specie,race,size,sex,username)) {
             return Response.status(Response.Status.CREATED).build(); //201
@@ -82,6 +84,37 @@ public class PictureResource {
     }
 
     private void saveFile(InputStream uploadInputStream, String filename, ServletContext servletContext){
+        int read = 0;
+        byte[] bytes = new byte[1024];
+
+        try{
+            String uploadPath = servletContext.getRealPath("");
+                uploadPath = uploadPath.substring(0,uploadPath.length()-38)+"src/main/webapp/Js/images";
+                path = uploadPath+File.separator+filename;
+                fileNameFinal = filename;
+
+
+            File uploadDir = new File(uploadPath);
+            if(!uploadDir.exists()) uploadDir.mkdir();
+
+            OutputStream outputStream = new FileOutputStream(uploadPath+File.separator+filename);
+            while((read = uploadInputStream.read(bytes))!=-1){
+                outputStream.write(bytes,0,read);
+
+            }
+
+            outputStream.flush();
+            outputStream.close();
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void saveFile2(InputStream uploadInputStream, String filename, ServletContext servletContext){
         int read = 0;
         byte[] bytes = new byte[1024];
         try{

@@ -7,6 +7,7 @@ import java.io.Serializable;
 @Table(name = "Petcase")
 public class PetCase implements Serializable {
     @Id
+    @GeneratedValue
     @Column(name = "Case_id")
     private Integer case_id;
 
@@ -17,7 +18,7 @@ public class PetCase implements Serializable {
     private String type;
 
     @Column(name = "description")
-    private Integer description;
+    private String description;
 
     @Column(name = "pet_id")
     private Integer pet_id;
@@ -32,8 +33,7 @@ public class PetCase implements Serializable {
 
     }
 
-    public PetCase(Integer case_id, String created_at, String type, Integer description, Integer pet_id) {
-        this.case_id = case_id;
+    public PetCase( String created_at, String type, String description, Integer pet_id) {
         this.created_at = created_at;
         this.type = type;
         this.description = description;
@@ -64,11 +64,19 @@ public class PetCase implements Serializable {
         this.type = type;
     }
 
-    public Integer getDescription() {
+    public String getDescription() {
         return description;
     }
 
-    public void setDescription(Integer description) {
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
+    }
+
+    public void setDescription(String description) {
         this.description = description;
     }
 

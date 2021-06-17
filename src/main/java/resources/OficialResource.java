@@ -1,6 +1,9 @@
 package resources;
 
+import co.edu.unbosque.Final_proyect_prog.entities.Owner;
 import co.edu.unbosque.Final_proyect_prog.services.OficialService;
+import co.edu.unbosque.Final_proyect_prog.services.OwnerService;
+import resources.Pojos.OwnerPOJO;
 import resources.Pojos.UserAppPOJO;
 import resources.filters.Logged;
 
@@ -8,6 +11,8 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
 
 @Path("/userApp/oficial")
 public class OficialResource {
@@ -30,6 +35,25 @@ public class OficialResource {
         }
     }
 
+    @GET
+    @Path("/{neight}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response listOwnerByNeight(@PathParam("neight") String neight){
+        OwnerService ownerService = new OwnerService();
+        if(ownerService.listByNeigth(neight)==null){
+            List<OwnerPOJO> owners = null;
+            return Response.ok().entity(owners).build();
+        }else{
+            List<Owner> owners = ownerService.listByNeigth(neight);
+            List<OwnerPOJO> ownersPojo = new ArrayList<>();
+            for(Owner o: owners){
+                ownersPojo.add(new OwnerPOJO(o.getName(),o.getPerson_id(),o.getAddress(),o.getNeighborhood()));
+            }
+            return Response.ok().entity(ownersPojo).build();
+        }
+
+    }
+
     @Logged
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -47,15 +71,6 @@ public class OficialResource {
 
     }
 
-    @GET
-    @Path("/{userName}")
-    @Produces(MediaType.TEXT_PLAIN)
-    public Response testCookie(@PathParam("userName") String userName) {
-        if (!userName.isEmpty()) {
-            return Response.ok().entity("el usuario es: " + userName).build();
-        } else {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-    }
+
 
 }
