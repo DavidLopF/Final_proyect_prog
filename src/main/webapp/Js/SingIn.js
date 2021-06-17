@@ -34,11 +34,11 @@ function verificationLoginVet() {
     http.onreadystatechange = function () {
 
         if (http.readyState == 4 && http.status == 200) {
-
+            alert(http.responseText)
             var data = http.responseText.split(":")
             document.cookie = "role=" + data[0]
             document.cookie = "userName=" + data[1]
-
+            window.location.href = "http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/funtionVet.html"
 
         } else if (http.readyState == 4 && http.status != 200) {
             alert(http.responseText)

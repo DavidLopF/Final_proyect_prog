@@ -29,11 +29,11 @@ public class PetResource {
                            @PathParam("ownerUser") String ownerUser) {
         Date date = new Date();
         String dataRegister = date.toString();
-        String pictureNameFinal = ownerUser+pictureName;
+        String pictureNameFinal = ownerUser + pictureName;
         String pDescription = "Pet name: " + name + "\nRegistred at " + date;
         PicturePojo picturePojo = new PicturePojo(pDescription, pictureNameFinal, dataRegister);
         PetService petService = new PetService();
-        if (petService.createPet(picturePojo,name,microship,specie,race,size,sex,ownerUser)) {
+        if (petService.createPet(picturePojo, name, microship, specie, race, size, sex, ownerUser)) {
             return Response.status(Response.Status.CREATED).build(); //201
         } else {
             return Response.status(400).build(); //buscar el codigo
@@ -44,13 +44,17 @@ public class PetResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{username}")
-    public Response listPets(@PathParam("username") String username){
+    public Response listPets(@PathParam("username") String username) {
         PetService petService = new PetService();
         List<PetPOJO> pets = petService.listPets(username);
 
         return Response.ok().entity(pets).build();
     }
 
-
-
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response listAllPets() {
+        PetService petService = new PetService();
+        return Response.ok().entity(petService.listAllPets()).build();
+    }
 }
