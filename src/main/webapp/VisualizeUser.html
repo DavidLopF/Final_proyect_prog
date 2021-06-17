@@ -7,7 +7,7 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <link rel="stylesheet" href="Css/FormOfficer.css">
+  <link rel="stylesheet" href="css/FormOfficer.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
@@ -51,7 +51,7 @@
     </select></label>
 <h2 class ="Info">According to the locality the data will be filtered</h2>
 <br>
-    <button type="button" class="btn btn-primary">
+    <button type="button" onclick="tableLocation()" class="btn btn-primary">
       <i class="fas fa-search"></i>
     </button>
   </form>
@@ -63,17 +63,13 @@
     <tr>
       <th>ID </th>
       <th>Name</th>
+      <th>Address</th>
       <th>Location</th>
 
     </tr>
     </thead>
     <tbody id="res">
-    <tr>
-      <td>ggg</td>
-      <td>hdhdhhd</td>
-      <td> dhdhhd</td>
 
-    </tr>
     </tbody>
   </table>
 </div>
@@ -89,8 +85,9 @@
   }
 </script>
 
-<script src="js/formTable.js"></script>
+<script src="Js/formTable.js"></script>
 
+<script src="Js/tableByLocation.js"></script>
 </body>
 
 </html>

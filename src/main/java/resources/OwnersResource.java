@@ -2,6 +2,7 @@ package resources;
 
 import co.edu.unbosque.Final_proyect_prog.entities.Owner;
 import co.edu.unbosque.Final_proyect_prog.services.OwnerService;
+import resources.Pojos.OwnerPOJO;
 import resources.Pojos.UserAppPOJO;
 import resources.filters.Logged;
 
@@ -13,6 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.NumberFormat;
+import java.util.List;
 import java.util.logging.Logger;
 
 
@@ -55,6 +57,20 @@ public class OwnersResource {
 
 
     }
+
+    @GET
+    @Path("/filter")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response filterByNeight(){
+        OwnerService ownerService = new OwnerService();
+        List<OwnerPOJO> pojo = ownerService.filterByNeight();
+        if(pojo==null){
+            return Response.status(Response.Status.NOT_ACCEPTABLE).entity(null).build();
+        }else{
+            return Response.status(Response.Status.CREATED).entity(pojo).build();
+        }
+    }
+
 
 
 

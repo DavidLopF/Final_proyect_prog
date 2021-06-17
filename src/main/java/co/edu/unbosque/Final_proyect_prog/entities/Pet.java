@@ -161,4 +161,22 @@ public class Pet implements Serializable {
     public void setVisits(List<Visit> visits) {
         this.visits = visits;
     }
+
+    @Override
+    public String toString() {
+        return "Pet{" +
+                "name_id=" + name_id +
+                ", microchip=" + microchip +
+                ", name='" + name + '\'' +
+                ", species='" + species + '\'' +
+                ", race='" + race + '\'' +
+                ", size='" + size + '\'' +
+                ", sex='" + sex + '\'' +
+                ", owner_id=" + owner_id +
+                ", picture='" + picture + '\'' +
+                ", owner=" + owner +
+                ", cases=" + cases +
+                ", visits=" + visits +
+                '}';
+    }
 }

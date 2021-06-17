@@ -104,15 +104,16 @@ public class PetImp implements PetRepository {
     }
 
     public List<Pet> listByParameter(String param, String value){
-        if(param.equals("specie")){
+
+        if(param.equals("Specie")){
             return entityManager.createQuery("SELECT c FROM Pet c WHERE c.species LIKE :species").setParameter("species",value).getResultList();
-        }else if(param.equals("race")){
+        }else if(param.equals("Race")){
             return entityManager.createQuery("SELECT c FROM Pet c WHERE c.race LIKE :races").setParameter("races",value).getResultList();
 
-        }else if(param.equals("size")){
+        }else if(param.equals("Size")){
             return entityManager.createQuery("SELECT c FROM Pet c WHERE c.size LIKE :sizes").setParameter("sizes",value).getResultList();
 
-        }else if(param.equals("sex")){
+        }else if(param.equals("Sex")){
             return entityManager.createQuery("SELECT c FROM Pet c WHERE c.sex LIKE :sexs").setParameter("sexs",value).getResultList();
         }
         else if(param.equals("id")){
@@ -127,10 +128,7 @@ public class PetImp implements PetRepository {
         return null;
     }
 
-    public List getByParam(String param){
-        return entityManager.createQuery("select distinct p from Pet p left join fetch p.name",Pet.class).setHint(QueryHints.HINT_PASS_DISTINCT_THROUGH,false)
-                .getResultList();
-    }
+
 
 
 }
