@@ -33,17 +33,6 @@ public class PetPOJO {
         this.url = url;
     }
 
-    public PetPOJO(int id, String owner, long microship, String name, String specie, String race, String size, String sex, String image) {
-        this.id = id;
-        this.owner = owner;
-        this.microship = microship;
-        this.name = name;
-        this.specie = specie;
-        this.race = race;
-        this.size = size;
-        this.sex = sex;
-        this.image = image;
-    }
 
     public String getImage() {
         return image;

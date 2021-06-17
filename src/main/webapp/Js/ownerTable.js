@@ -66,7 +66,7 @@ function printTable() {
 
         }
     }
-    xhr.open('GET', 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets' + finalUsername, true);
+    xhr.open('GET', 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets/' + finalUsername, true);
     xhr.send()
 
 }

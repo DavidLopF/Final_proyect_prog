@@ -21,6 +21,9 @@ public class PetImp implements PetRepository{
     }
 
     public Optional<Pet> finById(Integer id){
+        Pet pet = entityManager.find(Pet.class, id);
+        return pet != null ? Optional.of(pet) : Optional.empty();
+    }
 
     public Optional<Pet> findByUserName(int id) {
         Pet pet = entityManager.find(Pet.class, id);
@@ -76,9 +79,7 @@ public class PetImp implements PetRepository{
         return false;
     }
 
-    public List listAllPets(){
-        return entityManager.createQuery("FROM Pet").getResultList();
-    }
+
     public boolean haveSterilization(int pet_id) {
         Pet pet = entityManager.find(Pet.class, pet_id);
         boolean flag = false;
