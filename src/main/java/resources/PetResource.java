@@ -94,16 +94,8 @@ public class PetResource {
     public Response getByParameter(@PathParam("param") String param){
         return null;
     }
-   /* @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{username}/{param}")
-    public Response listPets(@PathParam("username") String username,
-                             @PathParam("param") String param) {
-        PetService petService = new PetService();
-        List pets = petService.getByParameter(param);
 
-        return Response.ok().entity(pets).build();
-    }*/
+ 
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
