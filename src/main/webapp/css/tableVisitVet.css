@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
 html,
 body {
     background-image: url("https://i.ibb.co/rQXsf82/transparent.png");
@@ -26,7 +25,7 @@ header {
   padding: 5px 10%;
   background-color: #96c2e6;
 }
-header .cta1 button {
+header .cta button {
   margin-top: -20px;
   margin-right: 30px;
   padding: 9px 25px;
@@ -37,13 +36,12 @@ header .cta1 button {
   transition: all 0.3s ease 0s;
 }
 
-header .cta1 button:hover {
+header .cta button:hover {
   background-color: black;
 }
 
 .buttons{
   margin-top: 30px;
-
   display: flex;
   justify-content: center;
 }
@@ -62,6 +60,58 @@ header .cta1 button:hover {
     background-color: rgba(56, 71, 206, 0.712);
 }
 
+.container {
+  margin-top: 30px;
+  width: 60%;
+  background-color:#cfe2ff;
+  border-radius: 8px;
+  color: #312929;
+
+}
+
+.form {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.form .date {
+  text-align: right;
+  float: right;
+  width: 58%;  
+}
+
+.container .form .form-label {
+  float: right;
+  width: 58%;
+}
+
+h1 {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.sele select {
+  width: 290px;
+  padding: 0.625rem 10px;
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  letter-spacing: 0.062rem;
+  margin-bottom: 1.875rem;
+  border-radius: 20px;
+  border-bottom: 0.065rem solid rgb(47, 117, 175);
+  outline: none;
+  background: rgba(142, 211, 176, 0.5);
+}
+
+.form input {
+  padding: 0.625rem 20px;
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  letter-spacing: 0.062rem;
+  margin-bottom: 1.875rem;
+  border-radius: 10px;
+  border-bottom: 0.065rem solid rgb(47, 117, 175);
+  outline: none;
+  background: rgba(142, 211, 176, 0.5);
+}
 .icon {
 	padding: 15px;
 	background: rgb(105, 123, 141);
@@ -298,6 +348,7 @@ table {
     text-align: center;
     width: 100%;
     border-radius: 8px;
+  
 }
 
 th, td {
