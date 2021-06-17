@@ -28,4 +28,23 @@ public class VisitResource {
             return Response.status(Response.Status.NOT_ACCEPTABLE).build();
         }
     }
+
+    @POST
+    @Path("{pet_id}/{vet_id}/{type}/{createAt}/{description}/{microchip}")
+    public Response createVisitWithMicro(@PathParam("pet_id") int pet_id,
+                                         @PathParam("vet_id") String vet_id,
+                                         @PathParam("type") String type,
+                                         @PathParam("createAt") String createAt,
+                                         @PathParam("description") String description,
+                                         @PathParam("microchip") long microchip) {
+        VisitService visitService = new VisitService();
+        if (visitService.createVisitMicro(vet_id, pet_id, description, type, createAt, microchip)) {
+
+            return Response.status(Response.Status.CREATED).build();
+
+        } else {
+
+            return Response.status(Response.Status.NOT_ACCEPTABLE).build();
+        }
+    }
 }

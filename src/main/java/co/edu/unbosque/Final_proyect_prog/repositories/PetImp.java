@@ -2,6 +2,7 @@ package co.edu.unbosque.Final_proyect_prog.repositories;
 
 import co.edu.unbosque.Final_proyect_prog.entities.Pet;
 import co.edu.unbosque.Final_proyect_prog.entities.Vet;
+import co.edu.unbosque.Final_proyect_prog.entities.Visit;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -29,6 +30,18 @@ public class PetImp implements PetRepository{
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean haveSterilization(int pet_id) {
+        Pet pet = entityManager.find(Pet.class, pet_id);
+        boolean flag = false;
+
+        for (Visit visit : pet.getVisits()) {
+            if (visit.getType().equals("sterilization")) {
+                flag = true;
+            }
+        }
+        return flag;
     }
 
     @Override
