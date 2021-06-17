@@ -34,6 +34,10 @@ public class OwnerImp implements OwnerRepository{
         return owner != null ? Optional.of(owner) : Optional.empty();
     }
 
+    public List<Owner> getAllOwner(){
+        return entityManager.createQuery("from Owner").getResultList();
+    }
+
     @Override
     public boolean modify(String username, String name, String address, String neighborhood) {
         Owner owner = entityManager.find(Owner.class, username);

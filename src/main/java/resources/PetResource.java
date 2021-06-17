@@ -6,6 +6,9 @@ import co.edu.unbosque.Final_proyect_prog.services.PetService;
 import resources.Pojos.PetPOJO;
 import resources.Pojos.PicturePojo;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -74,12 +77,13 @@ public class PetResource {
     @Path("/{param}/{value}")
     public Response listPetsByParameter(@PathParam("param") String param,
                                         @PathParam("value") String value){
+        System.out.println("Entra al metodo");
         PetService petService = new PetService();
         if(petService.listPetsByParameter(param,value)==null){
-            return Response.ok().entity(null).build();
+            return Response.status(Response.Status.NOT_ACCEPTABLE).entity(null).build();
         }else{
             List<PetPOJO> pojos = petService.listPetsByParameter(param,value);
-            return Response.ok().entity(pojos).build();
+            return Response.status(201).entity(pojos).build();
         }
 
     }
@@ -91,16 +95,7 @@ public class PetResource {
         return null;
     }
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/{username}/{param}")
-    public Response listPets(@PathParam("username") String username,
-                             @PathParam("param") String param) {
-        PetService petService = new PetService();
-        List pets = petService.getByParameter(param);
-
-        return Response.ok().entity(pets).build();
-    }
+ 
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)

@@ -41,15 +41,11 @@ public class OficialResource {
     public Response listOwnerByNeight(@PathParam("neight") String neight){
         OwnerService ownerService = new OwnerService();
         if(ownerService.listByNeigth(neight)==null){
-            List<OwnerPOJO> owners = null;
-            return Response.ok().entity(owners).build();
+            return Response.ok().entity(null).build();
         }else{
-            List<Owner> owners = ownerService.listByNeigth(neight);
-            List<OwnerPOJO> ownersPojo = new ArrayList<>();
-            for(Owner o: owners){
-                ownersPojo.add(new OwnerPOJO(o.getName(),o.getPerson_id(),o.getAddress(),o.getNeighborhood()));
-            }
-            return Response.ok().entity(ownersPojo).build();
+            List<OwnerPOJO> owners = ownerService.listByNeigth(neight);
+
+            return Response.ok().entity(owners).build();
         }
 
     }

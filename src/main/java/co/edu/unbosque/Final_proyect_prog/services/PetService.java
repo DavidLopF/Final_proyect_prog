@@ -108,8 +108,8 @@ public class PetService {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         petImp = new PetImp(entityManager);
-        List pets = petImp.getByParam(param);
-        return pets;
+       // List pets = petImp.getByParam(param);
+        return null;
 
     }
 
@@ -166,12 +166,6 @@ public class PetService {
             if(param.equals("race")){
                 if(!isInList(takens,p.getRace())){
                     takens.add(p.getRace());
-                    pojos.add(new PetPOJO(p.getName_id(),String.valueOf(p.getOwner_id()),p.getMicrochip(),p.getName(),p.getSpecies(),p.getRace(),p.getSize(),p.getSex(),p.getPicture()));
-                }
-            }
-            if(param.equals("size")){
-                if(!isInList(takens,p.getSize())){
-                    takens.add(p.getSize());
                     pojos.add(new PetPOJO(p.getName_id(),String.valueOf(p.getOwner_id()),p.getMicrochip(),p.getName(),p.getSpecies(),p.getRace(),p.getSize(),p.getSex(),p.getPicture()));
                 }
             }
