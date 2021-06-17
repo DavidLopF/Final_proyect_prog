@@ -1,6 +1,7 @@
 package co.edu.unbosque.Final_proyect_prog.entities;
 
 import javax.persistence.*;
+import java.security.PrivateKey;
 
 @Entity
 @Table(name = "visit")
@@ -21,17 +22,20 @@ public class Visit {
     private String descripcion;
 
     @ManyToOne
+    @JoinColumn(name = "Name_id")
+    private Pet pet;
+
+    @ManyToOne
     private Vet vet;
 
     public Visit() {
     }
 
-    public Visit(Integer visitId, String createAt, String type, String descripcion, Vet vet) {
-        this.visitId = visitId;
+    public Visit( String createAt, String type, String descripcion) {
         this.createAt = createAt;
         this.type = type;
         this.descripcion = descripcion;
-        this.vet = vet;
+
     }
 
     public Integer getVisitId() {
@@ -72,5 +76,13 @@ public class Visit {
 
     public void setVet(Vet vet) {
         this.vet = vet;
+    }
+
+    public Pet getPet() {
+        return pet;
+    }
+
+    public void setPet(Pet pet) {
+        this.pet = pet;
     }
 }

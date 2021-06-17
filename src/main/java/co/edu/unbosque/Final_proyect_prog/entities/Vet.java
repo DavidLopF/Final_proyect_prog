@@ -2,6 +2,7 @@ package co.edu.unbosque.Final_proyect_prog.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -23,7 +24,7 @@ public class Vet implements Serializable {
 
 
     @OneToMany(mappedBy = "vet", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Visit> visits;
+    private List<Visit> visits = new ArrayList<>();
 
 
     public Vet(UserApp userApp, String name, String address, String neighborhood) {
@@ -35,6 +36,10 @@ public class Vet implements Serializable {
 
     public Vet() {
 
+    }
+
+    public void addVisit(Visit visit) {
+        visits.add(visit);
     }
 
     public UserApp getUserApp() {
@@ -76,7 +81,6 @@ public class Vet implements Serializable {
     public void setVisits(List<Visit> visits) {
         this.visits = visits;
     }
-
 
 
 }

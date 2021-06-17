@@ -42,28 +42,26 @@ function printTable() {
             createListener()
             var cerrar = document.getElementById("cerrar")
             cerrar.addEventListener("click", () => {
-                console.log("paso")
                 header = document.getElementById("overlay")
                 header.style.visibility = "hidden"
             })
 
             var cerrar2 = document.getElementById("btn-cerrar-popupVet")
             cerrar2.addEventListener("click", () => {
-                console.log("paso")
                 header = document.getElementById("overlayVet")
                 header.style.visibility = "hidden"
             })
 
         }
     }
-    xhr.open('GET', 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets/' + finalUsername, true);
+    xhr.open('GET', 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets' + finalUsername, true);
     xhr.send()
 
 }
 
 function createListener() {
     var boton = document.getElementsByClassName("cta")
-    for (let i = 0; i < boton.length; i++) {
+    for (let i = 1; i < boton.length; i++) {
         boton[i].addEventListener("click", () => {
             header = document.getElementById("overlay")
             header.style.visibility = "visible"
@@ -73,7 +71,6 @@ function createListener() {
     var boton2 = document.getElementsByClassName("cta1")
     for (let i = 0; i < boton2.length; i++) {
         boton2[i].addEventListener("click", () => {
-            console.log("paso")
             form =document.getElementById("overlayVet")
             form.style.visibility = "visible"
         })
