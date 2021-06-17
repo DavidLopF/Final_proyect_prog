@@ -125,10 +125,6 @@ public class PetImp implements PetRepository{
         return null;
     }
 
-    public List getByParam(String param){
-        return entityManager.createQuery("select distinct p from Pet p left join fetch p.name",Pet.class).setHint(QueryHints.HINT_PASS_DISTINCT_THROUGH,false)
-                .getResultList();
-    }
 
 
 
