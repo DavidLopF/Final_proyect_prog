@@ -6,10 +6,13 @@ import co.edu.unbosque.Final_proyect_prog.entities.Visit;
 import co.edu.unbosque.Final_proyect_prog.repositories.PetImp;
 import co.edu.unbosque.Final_proyect_prog.repositories.VetRepositoryImp;
 import co.edu.unbosque.Final_proyect_prog.repositories.VisitRepositoryImp;
+import resources.Pojos.VisitPOJO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class VisitService {
@@ -83,5 +86,21 @@ public class VisitService {
         } else {
             return false;
         }
+    }
+
+    public List<VisitPOJO> visitsPet(int pet_id) {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        petImp = new PetImp(entityManager);
+
+        Optional<Pet> data = petImp.findByUserName(pet_id);
+        Pet pet = data.get();
+        List<VisitPOJO> visitPOJOS = new ArrayList<VisitPOJO>();
+
+        for (Visit visit : pet.getVisits()) {
+            visitPOJOS.add(new VisitPOJO(visit.getVisitId(), visit.getCreateAt(), visit.getType(), visit.getDescripcion(), visit.getPet().getName_id(), visit.getVet().getUserApp().getUserName()));
+        }
+
+        return visitPOJOS;
     }
 }
