@@ -3,6 +3,7 @@ package co.edu.unbosque.Final_proyect_prog.repositories;
 import co.edu.unbosque.Final_proyect_prog.entities.Owner;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 import java.util.Optional;
 
 public class OwnerImp implements OwnerRepository{
@@ -20,6 +21,10 @@ public class OwnerImp implements OwnerRepository{
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Owner> listByNeight(String neight){
+        return entityManager.createQuery("SELECT c FROM Owner c WHERE c.neighborhood LIKE :chooseN").setParameter("chooseN",neight).getResultList();
     }
 
 

@@ -75,6 +75,7 @@ public class Pet implements Serializable {
         return picture;
     }
 
+
     public void setPicture(String picture) {
         this.picture = picture;
     }
@@ -151,6 +152,7 @@ public class Pet implements Serializable {
     public void setOwner(Owner owner) {
         this.owner = owner;
     }
+
 
     public List<Visit> getVisits() {
         return visits;

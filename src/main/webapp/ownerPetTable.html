@@ -44,7 +44,9 @@
                 <th>Race</th>
                 <th>Size</th>
                 <th>Sex</th>
-                <th>Picture</th>
+                <th>Update</th>
+                <th>Modify</th>
+                <th>Case</th>
             </tr>
 
             </thead>
@@ -61,42 +63,39 @@
           <a href="#" id="cerrar" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
           <h3>Update Pet</h3>
           <form action="" style="max-width:500px;margin:auto">
+
               <div class="inputBox">
-                  <input type="number" name="id" required onkeyup="this.setAttribute('value', this.value);" value="">
-                  <label>ID of Pet</label>
-              </div>
-              <div class="inputBox">
-              <input type="number" name="microchip" required onkeyup="this.setAttribute('value', this.value);" value="">
+              <input type="number" id="microchip" name="microchip" required onkeyup="this.setAttribute('value', this.value);" value="">
               <label>Microchip</label>
             </div>
   
             <div class="inputBox">
-              <input type="text" name="name" required value=""
+              <input type="text" id="name" name="name" required value=""
                      onkeyup="this.setAttribute('value', this.value);">
               <label>Name</label>
             </div>
   
             <div class="inputBox">
-              <input type="text" name="specie" required onkeyup="this.setAttribute('value', this.value);" value="">
+              <input type="text" id="specie" name="specie" required onkeyup="this.setAttribute('value', this.value);" value="">
               <label>Specie</label>
             </div>
   
             <div class="inputBox">
-              <input type="text" name="race" required onkeyup="this.setAttribute('value', this.value);" value="">
+              <input type="text" id="race" name="race" required onkeyup="this.setAttribute('value', this.value);" value="">
               <label>Race</label>
             </div>
   
             <div class="inputBox">
-              <input type="text" name="size" required onkeyup="this.setAttribute('value', this.value);" value="">
+              <input type="text" id="size" name="size" required onkeyup="this.setAttribute('value', this.value);" value="">
               <label>Size</label>
             </div>
   
             <div class="inputBox">
-              <input type="text" name="sex" required onkeyup="this.setAttribute('value', this.value);" value="">
+              <input type="text" id="sex" name="sex" required onkeyup="this.setAttribute('value', this.value);" value="">
               <label>Sex</label>
             </div>
   
-            <input type="button" name="sign-in" value="Create Pet">
+            <input type="button" onclick="modifyPet()" name="sign-in" value="Create Pet">
           </form>
       </div>
     </div>
@@ -110,9 +109,9 @@
                     <select name="case" id="case" required value=""
                     onkeyup="this.setAttribute('value', this.value);">
                         <option value="volvo"></option>
-                        <option value="saab">Lost</option>
-                        <option value="opel">Death</option>
-                        <option value="audi">Stole</option>
+                        <option onclick="createCaseCookie('Lost')" value="saab">Lost</option>
+                        <option onclick="createCaseCookie('Death')" value="opel">Death</option>
+                        <option onclick="createCaseCookie('Stole')" value="audi">Stole</option>
                     </select>
                 </div>
   
@@ -121,7 +120,7 @@
                 <label>Description:</label>
             </div>
   
-            <input type="submit" name="sign-in" value="Create case">
+            <input type="button" onclick="createPetCase()" name="sign-in" value="Create case">
           </form>
         
       </div>
@@ -130,7 +129,7 @@
 
 <script src="Js/ownerTable.js"></script>
 <script src="Js/formTable.js"></script>
-
+    <script src="Js/SignUp.js"></script>
 </body>
 
 </html>

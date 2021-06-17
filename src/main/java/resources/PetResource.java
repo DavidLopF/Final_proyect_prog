@@ -41,20 +41,85 @@ public class PetResource {
 
     }
 
+    @PUT
+    @Path("/{microship}/{name}/{specie}/{race}/{size}/{sex}/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response modify(@PathParam("name") String name,
+                           @PathParam("microship") long microship,
+                           @PathParam("specie") String specie,
+                           @PathParam("race") String race,
+                           @PathParam("size") String size,
+                           @PathParam("sex") String sex,
+                           @PathParam("id")Integer id){
+        PetService petService = new PetService();
+        if(petService.modify(name,microship,size,specie,race,sex,id)){
+            return Response.status(Response.Status.ACCEPTED).build();
+        }else{
+            return Response.status(Response.Status.NOT_ACCEPTABLE).build();
+        }
+    }
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{username}")
-    public Response listPets(@PathParam("username") String username) {
+    public Response listAllPetsByUsername(@PathParam("username") String username){
         PetService petService = new PetService();
-        List<PetPOJO> pets = petService.listPets(username);
+        List<PetPOJO> pets = petService.listPetsByUsername(username);
 
         return Response.ok().entity(pets).build();
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response listAllPets() {
+    @Path("/{param}/{value}")
+    public Response listPetsByParameter(@PathParam("param") String param,
+                                        @PathParam("value") String value){
         PetService petService = new PetService();
-        return Response.ok().entity(petService.listAllPets()).build();
+        if(petService.listPetsByParameter(param,value)==null){
+            return Response.ok().entity(null).build();
+        }else{
+            List<PetPOJO> pojos = petService.listPetsByParameter(param,value);
+            return Response.ok().entity(pojos).build();
+        }
+
     }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/get/{param}")
+    public Response getByParameter(@PathParam("param") String param){
+        return null;
+    }
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{username}/{param}")
+    public Response listPets(@PathParam("username") String username,
+                             @PathParam("param") String param) {
+        PetService petService = new PetService();
+        List pets = petService.getByParameter(param);
+
+        return Response.ok().entity(pets).build();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/list")
+    public Response listAllPets(){
+        PetService petService = new PetService();
+        List<PetPOJO> pets = petService.listAllPets();
+        return Response.ok().entity(pets).build();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/filter/{param}")
+    public Response filterByParam(@PathParam("param")String param){
+        PetService petService = new PetService();
+        List<PetPOJO> pets = petService.filterByParam(param);
+        return Response.ok().entity(pets).build();
+    }
+
+
+
+
 }

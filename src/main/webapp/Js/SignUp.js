@@ -35,6 +35,48 @@ function sendDataOwner() {
 
     }
 }
+function createCaseCookie(id){
+    document.cookie = "type="+id
+}
+
+function createPetCase(){
+    var seleccion = document.getElementById("case")
+    var description = document.getElementById("comments").value
+    var id = leerCookie("selectedButton")
+    var type
+    if(seleccion == "saab"){
+        type = 'Lost'
+    }else if(seleccion == "opel"){
+        type = 'Deatch'
+    }else {
+        type = 'Stole'
+    }
+    var url = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets/cases/'
+        + type + '/' + description + "/" + id
+    var http = new XMLHttpRequest()
+
+    http.open("POST", url, true)
+    http.onreadystatechange = function () {
+
+        if (http.readyState == 4 && http.status == 201) {
+            alert("PetCase created successfully")
+            window.location.href = "http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/funtionOwner.html"
+
+        } else if (http.readyState == 4 && http.status == 406) {
+            alert("you should check all input for this form: \n" +
+                "    -This inputs don´t shoudl null")
+        } else if (http.readyState == 4 && http.status != 201 && http.status != 406) {
+            alert(http.responseText)
+        }else if(http.readyState == 4 && http.status != 404){
+            alert("Not found html ")
+        }
+    }
+    http.send()
+
+
+
+}
+
 
 function modifyOwner(){
     var address = document.getElementById("adress").value
@@ -48,6 +90,7 @@ function modifyOwner(){
 
         if (http.readyState == 4 && http.status == 201) {
             alert("Owner modify successfully")
+            window.location.href = "http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/funtionOwner.html"
         } else if (http.readyState == 4 && http.status == 406) {
             alert("you should check all input for this form: \n" +
                 "    -This inputs don´t shoudl null")
@@ -90,7 +133,8 @@ function uploadPicture(){
     http.onreadystatechange = function () {
         if (http.readyState == 4 && http.status == 201) {
             alert("picture and pet created successfully")
-            window.location("functionOwner.html")
+            window.location.href = "http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/funtionOwner.html"
+
         } else if (http.readyState == 4 && http.status == 406) {
             alert("you should check all input for this form: \n" +
                 "    -This inputs don´t shoudl null.\n" +
@@ -137,6 +181,35 @@ function createPet(){
 
 
 }
+
+function modifyPet(){
+    var microship = document.getElementById("microchip").value
+    var name = document.getElementById("name").value
+    var specie = document.getElementById("specie").value
+    var race = document.getElementById("race").value
+    var size = document.getElementById("size").value
+    var sex = document.getElementById("sex").value
+    var id = leerCookie("selectedButton")
+    var http = new XMLHttpRequest()
+    var url = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/owners/pets/'
+        + microship + '/' + name + "/" + specie + '/' + race +'/'+size+'/'+sex+'/'+id
+    http.open("PUT", url, true)
+    http.onreadystatechange = function () {
+
+        if (http.readyState == 4 && (http.status == 201||http.status == 202)) {
+            alert("Pet modify successfully")
+            window.location.href = "http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/funtionOwner.html"
+        } else if (http.readyState == 4 && http.status == 406) {
+            alert("you should check all input for this form: \n" +
+                "    -This inputs don´t shoudl null")
+        } else if (http.readyState == 4 && http.status != 201 && http.status != 406) {
+            alert(http.responseText)
+        }
+    }
+    http.send()
+
+}
+
 
 
 
