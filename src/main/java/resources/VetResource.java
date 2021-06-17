@@ -39,7 +39,7 @@ public class VetResource {
                            @PathParam("neighborhood") String neighborhood) {
         VetService vetService = new VetService();
         if (vetService.updateVet(userName, address, neighborhood)) {
-            return Response.ok().entity("melo mi perro").build();
+            return Response.ok().entity("Vet modificated succesfully").build();
         } else {
             return Response.status(Response.Status.FORBIDDEN).build();
         }

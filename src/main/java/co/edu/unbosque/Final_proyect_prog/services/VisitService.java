@@ -11,7 +11,10 @@ import resources.Pojos.VisitPOJO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -98,9 +101,34 @@ public class VisitService {
         List<VisitPOJO> visitPOJOS = new ArrayList<VisitPOJO>();
 
         for (Visit visit : pet.getVisits()) {
-            visitPOJOS.add(new VisitPOJO(visit.getVisitId(), visit.getCreateAt(), visit.getType(), visit.getDescripcion(), visit.getPet().getName_id(), visit.getVet().getUserApp().getUserName()));
+            visitPOJOS.add(new VisitPOJO(visit.getVisitId(), visit.getCreateAt(), visit.getType(), visit.getDescripcion(), visit.getPet().getName_id(),
+                    visit.getVet().getUserApp().getUserName()));
         }
 
         return visitPOJOS;
     }
+
+    public List<VisitPOJO> visitPOJOS(int pet_id, Date first, Date second) throws ParseException {
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        petImp = new PetImp(entityManager);
+        Optional<Pet> data = petImp.findByUserName(pet_id);
+        Pet pet = data.get();
+        List<VisitPOJO> visitPOJOS = new ArrayList<VisitPOJO>();
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yy");
+
+        for (Visit visit : pet.getVisits()) {
+            Date fecha = format.parse(visit.getCreateAt());
+            if (first.compareTo(fecha) < 0 && second.compareTo(fecha) > 0) {
+                visitPOJOS.add(new VisitPOJO(visit.getVisitId(), visit.getCreateAt(), visit.getType(), visit.getDescripcion(), visit.getPet().getName_id(),
+                        visit.getVet().getUserApp().getUserName()));
+            }
+        }
+
+        return visitPOJOS;
+
+    }
+
+
 }
