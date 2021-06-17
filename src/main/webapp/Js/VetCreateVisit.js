@@ -64,7 +64,7 @@ function sendDataVisit() {
     if (micro != "") {
         if (micro != "" && create_at != "" && description != "") {
             var uri = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/vet/visit/' + pet_id + '/' + vet_id + '/'
-                + type + '/' + create_at + '/' + description + '/' + micro
+                + type + '/' + description + '/' + micro
             http.open("POST", uri, true)
             http.onreadystatechange = () => {
                 if (http.readyState == 4 && http.status == 201) {
@@ -81,7 +81,7 @@ function sendDataVisit() {
     } else {
         if (create_at != "" && description != "") {
             var uri = 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/vet/visit/' + pet_id + '/' + vet_id + '/'
-                + type + '/' + create_at + '/' + description
+                + type + '/' + description
             http.open("POST", uri, true)
             http.onreadystatechange = () => {
                 if (http.readyState == 4 && http.status == 201) {
