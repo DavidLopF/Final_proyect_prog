@@ -88,8 +88,13 @@ public class PetResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/get/{param}")
     public Response getByParameter(@PathParam("param") String param){
-
-    public Response listPets(@PathParam("username") String username) {
+        return null;
+    }
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{username}/{param}")
+    public Response listPets(@PathParam("username") String username,
+                             @PathParam("param") String param) {
         PetService petService = new PetService();
         List pets = petService.getByParameter(param);
 
@@ -117,9 +122,4 @@ public class PetResource {
 
 
 
-
-    public Response listAllPets() {
-        PetService petService = new PetService();
-        return Response.ok().entity(petService.listAllPets()).build();
-    }
 }
