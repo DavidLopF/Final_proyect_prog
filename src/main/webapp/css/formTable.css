@@ -307,20 +307,38 @@ opacity: 0;
 }
 
 table {
-    text-align: center;
-    width: 100%;
-    border-radius: 8px;
+  text-align: center;
+  width: 100%;
+  border-radius: 8px;
 }
 
-th, td {
-    padding: 8px;
+th,
+td {
+  padding: 8px;
 }
 
 thead {
-    border-bottom: solid 5px white;
-    color: black;
-    border-radius: 8px;
+  background-color: rgb(205, 228, 255);
+  border-bottom: solid 5px black;
+  color: black;
+  border-radius: 8px;
 }
+
+tbody {
+  background: rgba(125, 197, 111, 0.253);
+  color: white;
+  border-radius: 8px;
+}
+
+tr:nth-child(even) {
+  background: rgba(125, 197, 111, 0.259);
+}
+
+tr:hover td {
+  background-color: rgb(191, 212, 240);
+  color: black;
+}
+
 
 
   input {
