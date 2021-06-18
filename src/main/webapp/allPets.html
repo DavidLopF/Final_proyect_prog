@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="shortcut icon" href="https://i.ibb.co/ckDdYBB/Ciudadados-de-4-Patas.png">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/FormOfficer.css">
+  <link rel="stylesheet" href="css/allPets.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <title>Pets Table</title>
 </head>
@@ -20,8 +20,11 @@
   <img class="logo" src="https://i.ibb.co/ckDdYBB/Ciudadados-de-4-Patas.png" alt="logo">
   <nav>
     <ul class="nav_links">
-      <li><a href="funtionOfficer.html">Home</a></li>
-
+      <li><a href="funtionOfficial.html">Home</a></li>
+      <li><a href="visualizeOwner.html">Table Owner</a></li>
+      <li><a href="cases.html">Table Cases</a></li>
+      <li><a href="visitsOfficial.html">Table Visit</a></li>
+      <li><a href="table.html">All Pets</a></li>
     </ul>
   </nav>
   <a class= "cta" href="contact.html"><button>Contact</button></a>
@@ -36,35 +39,35 @@
 
 <div class="container">
   <form action="" class="form">
-    <h1 class="title">Information Pets</h1>
-    <label for="filtrar" class="label"></label>
-    <label for="selectLocalidad" class="form-label">Selecciona La Opcion por la cual desea filtrar:
-      <br>
-
-      <select name="selectLocalidad" id="selectLocalidad" class="form-selec" required>
-        <option class="form-option"></option>
-        <option id="Specie" value="Specie" class="form-option">Specie</option>
-        <option value="Race" class="form-option">Race</option>
-        <option value="Size" class="form-option">Size</option>
-        <option value="Sex" class="form-option">Sex</option>
-        <option value="Sterilized" class="form-option">sterilized</option>
-      </select>
-      <br>
-      <label for="selectType" class="form-label">Selecciona Tipo de visita:
-        <br>
-        <select name="selectype" id="selectType" class="form-selec" required>
-          <option class="form-option"></option>
-
-        </select></label>
-    <h2 class ="Info">According to the selection the data will be filtered</h2>
-    <br>
-    <button onclick="tablePets()" type="button" class="btn btn-primary">
-      <i class="fas fa-search"></i></button>
-  </form>
+      <h1 class="title">Information Pets:</h1>
+      <label for="">Select option to filter</label> 
+      <label for="" class="form-label">Select type visit:</label>
+      <div class="input-group">
+        <div class="sele">
+          <select name="selectLocalidad" id="selectLocalidad" class="form-selec" required>
+            <option class="form-option"></option>
+            <option id="Specie" value="Specie" class="form-option">Specie</option>
+            <option value="Race" class="form-option">Race</option>
+            <option value="Size" class="form-option">Size</option>
+            <option value="Sex" class="form-option">Sex</option>
+            <option value="Sterilized" class="form-option">Sterilized</option>
+          </select>
+        </div>
+        
+          <div class="type">
+            <select name="selectype" id="selectType" class="form-selec" required>
+              <option class="form-option"></option>
+            </select>
+            <button onclick="tablePets()" type="button" class="btn btn-primary">
+              <i class="fas fa-search"></i>
+            </button>
+        </div>
+        </div>
+</form>
 </div>
 
 <div class="table-container" id="table-container">
-  <table class="table table-primary table-striped">
+  <table class="table">
     <thead>
     <tr>
 

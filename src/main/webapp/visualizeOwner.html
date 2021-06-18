@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="shortcut icon" href="https://i.ibb.co/ckDdYBB/Ciudadados-de-4-Patas.png">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link rel="stylesheet" href="css/FormOfficer.css">
@@ -25,7 +25,11 @@
   <img class="logo" src="https://i.ibb.co/ckDdYBB/Ciudadados-de-4-Patas.png" alt="logo">
   <nav>
     <ul class="nav_links">
-      <li><a href="funtionOfficer.html">Home</a></li>
+      <li><a href="funtionOfficial.html">Home</a></li>
+      <li><a href="allPets.html">Filter Pets</a></li>
+      <li><a href="cases.html">Table Cases</a></li>
+      <li><a href="visitsOfficial.html">Table Visit</a></li>
+      <li><a href="table.html">All Pets</a></li>
 
     </ul>
   </nav>
@@ -42,18 +46,16 @@
 <div class="container">
   <form action="" class="form">
     <h1 class="title">Information User Filtered By Location</h1>
-    <label for="filtrar" class="label"></label>
-    <label for="selectLocalidad" class="form-label">Selecciona Localidad para filtrar:
-      <br>
-      <select name="selectLocalidad" id="selectLocalidad" class="form-selec" required>
+    <div>
+      <label for="">Select location to filter</label>
+    <select name="selectLocalidad" id="selectLocalidad" class="form-selec" required>
       <option class="form-option"></option>
       <option class="form-option">ejemplo</option>
-    </select></label>
-<h2 class ="Info">According to the locality the data will be filtered</h2>
-<br>
+    </select>
     <button type="button" onclick="tableLocation()" class="btn btn-primary">
       <i class="fas fa-search"></i>
     </button>
+    </div>
   </form>
 </div>
 
@@ -68,9 +70,7 @@
 
     </tr>
     </thead>
-    <tbody id="res">
-
-    </tbody>
+    <tbody id="res"></tbody>
   </table>
 </div>
 <script>

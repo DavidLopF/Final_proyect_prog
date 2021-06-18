@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
 html,
 body {
     background-image: url("https://i.ibb.co/hDxNbTS/transparent.png");
@@ -294,16 +294,71 @@ header .cta button:hover {
 }
 
 .container {
-    width: 40%;
+    width: 57%;
+    margin-top: 30px;
     background-color:#cfe2ff;
     border-radius: 8px;
-    margin-top: 20px;
     color: #312929;
+  }
+
+  .form {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .form .type {
     text-align: center;
-}
+    float: right;
+    width: 30%;
+  }
+  
+  .container .form .form-label {
+    float: right;
+    width: 75%;
+  }
+  
+  h1 {
+    font-family: 'Merriweather', sans-serif;
+  }
+  
+  .sele select {
+    width: 290px;
+    padding: 0.625rem 10px;
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.062rem;
+    margin-bottom: 1.875rem;
+    border-radius: 20px;
+    border-bottom: 0.065rem solid rgb(47, 117, 175);
+    outline: none;
+    background: rgba(142, 211, 176, 0.5);
+  }
+
+  .type select {
+    width: 290px;
+    padding: 0.625rem 10px;
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.062rem;
+    margin-bottom: 1.875rem;
+    border-radius: 20px;
+    border-bottom: 0.065rem solid rgb(47, 117, 175);
+    outline: none;
+    background: rgba(142, 211, 176, 0.5);  
+  }
+  
+  .form input {
+    padding: 0.625rem 20px;
+    font-size: 1rem;
+    color: rgb(0, 0, 0);
+    letter-spacing: 0.062rem;
+    margin-bottom: 1.875rem;
+    border-radius: 10px;
+    border-bottom: 0.065rem solid rgb(47, 117, 175);
+    outline: none;
+    background: rgba(142, 211, 176, 0.5);
+  }
 
 .btn{
-
     margin-top: -5px;
 }
 #table-container {
