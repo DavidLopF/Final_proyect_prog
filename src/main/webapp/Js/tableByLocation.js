@@ -43,13 +43,14 @@ function tableLocation(){
 }
 
 function tableCases(){
-    var type = document.getElementById("table-container").value
+    var type = document.getElementById("selectTipos").value
+
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         var data = JSON.parse(xhr.responseText);
         var tbodyRef = document.getElementById("res")
         tbodyRef.innerHTML = ""
-        for(vari=0;i<data.length;i++){
+        for(var i=0;i<data.length;i++){
              tbodyRef.innerHTML += `
              <tr>
             <td>${data[i].pet_id}</td>
@@ -83,7 +84,7 @@ function tablePets(){
                 <td>${data[i].size}</td>
                 <td>${data[i].sex}</td>
                 <td>${data[i].microship}</td>
-                <td>${data[i].microship}</td>
+                <td>${data[i].sterelized}</td>
                 </tr>`
             }
         }

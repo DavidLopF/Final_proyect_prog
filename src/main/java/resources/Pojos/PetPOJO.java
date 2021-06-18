@@ -10,6 +10,7 @@ public class PetPOJO {
     private String size;
     private String sex;
     private String url;
+    private String sterelized;
 
     private String image;
 
@@ -23,6 +24,14 @@ public class PetPOJO {
         this.size = size;
         this.sex = sex;
         this.url = url;
+    }
+
+    public String getSterelized() {
+        return sterelized;
+    }
+
+    public void setSterelized(String sterelized) {
+        this.sterelized = sterelized;
     }
 
     public String getUrl() {
