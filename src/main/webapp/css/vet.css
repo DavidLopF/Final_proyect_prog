@@ -210,7 +210,7 @@ h1 {
     font-size: 0.75rem;
   }
   
-  .box input[type="submit"] {
+  .box input[type="button"] {
     width: 100%;
     border: none;
     outline: none;
@@ -222,7 +222,7 @@ h1 {
     font-size: 1rem;
   }
   
-  .box input[type="submit"]:hover {
+  .box input[type="button"]:hover {
     background-color: #181f22;
   }
 

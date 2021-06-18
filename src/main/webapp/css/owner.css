@@ -192,7 +192,7 @@ header .cta button:hover {
     font-size: 0.75rem;
 }
 
-.box input[type="submit"] {
+.box input[type="button"] {
     width: 100%;
     border: none;
     outline: none;
@@ -204,7 +204,7 @@ header .cta button:hover {
     font-size: 1rem;
 }
 
-.box input[type="submit"]:hover {
+.box input[type="button"]:hover {
     background-color: #181f22;
 }
 
