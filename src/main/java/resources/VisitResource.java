@@ -83,4 +83,20 @@ public class VisitResource {
         return Response.ok().entity(visitsPOJOs).build();
     }
 
+    @GET
+    @Path("list/{username}/{type}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response listByUserName(@PathParam("username")String username,
+                                   @PathParam("type")String type){
+        VisitService visitService = new VisitService();
+        List<VisitPOJO> visits = visitService.listByUsername(username,type);
+        if(visits==null){
+            return Response.status(Response.Status.NOT_ACCEPTABLE).entity(null).build();
+        }else{
+            return Response.status(Response.Status.ACCEPTED).entity(visits).build();
+        }
+
+
+    }
+
 }

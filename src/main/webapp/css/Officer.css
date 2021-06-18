@@ -2,12 +2,12 @@
 
 html,
 body {
-  background-image: url("https://i.ibb.co/hDxNbTS/transparent.png");
-  background-color: #96c2e6;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+    background-image: url("https://i.ibb.co/hDxNbTS/transparent.png");
+    background-color: #96c2e6;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 
@@ -20,11 +20,11 @@ li, a, button {
 }
 
 header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 5px 10%;
-  background-color: #BE96E6;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px 10%;
+    background-color: #BE96E6;
 }
 
 header .cta button {
@@ -51,8 +51,8 @@ header .cta button:hover {
 }
 
 .logoUser{
-  width: 10%;
-  margin-top: -5px;
+    width: 10%;
+    margin-top: -5px;
 }
 
 .nav_links {
@@ -87,7 +87,7 @@ header .cta button:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .container .images {
@@ -117,14 +117,14 @@ h1 {
     font-weight: 600;
     color: white;
 
-    
+
 }
 .container .images h5{
-	color: white;
-	 text-align: center;
-	
-	 font-weight: bold;
- }
+    color: white;
+    text-align: center;
+
+    font-weight: bold;
+}
 
 .container .images:hover {
     transform: translate(-15px);
@@ -139,23 +139,23 @@ h1 {
     align-content: center;
 }
 
-  
-  .btn {
-	background-color: rgb(65, 124, 184);
-	color: white;
-	padding: 15px 10px;
-	border: none;
-	cursor: pointer;
-	width: 100%;
-	opacity: 0.9;
-  }
-  
-  .btn:hover {
-	opacity: 1;
-  }
+
+.btn {
+    background-color: rgb(65, 124, 184);
+    color: white;
+    padding: 15px 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btn:hover {
+    opacity: 1;
+}
 
 
-  .box {
+.box {
     position: absolute;
     left: 34%;
     margin-top: 30px;
@@ -164,20 +164,20 @@ h1 {
     box-sizing: border-box;
     background: rgba(36, 32, 41, 0.6);
     border-radius: 0.625rem;
-  }
-  
-  .box h2 {
+}
+
+.box h2 {
     margin: 0 0 1.875rem;
     padding: 0;
     color: #fff;
     text-align: center;
-  }
-  
-  .box .inputBox {
+}
+
+.box .inputBox {
     position: relative;
-  }
-  
-  .box .inputBox input {
+}
+
+.box .inputBox input {
     width: 100%;
     padding: 0.625rem 0;
     font-size: 1rem;
@@ -188,9 +188,9 @@ h1 {
     border-bottom: 0.065rem solid #fff;
     outline: none;
     background: transparent;
-  }
-  
-  .box .inputBox label {
+}
+
+.box .inputBox label {
     position: absolute;
     top: 0;
     left: 0;
@@ -199,18 +199,18 @@ h1 {
     color: #fff;
     pointer-events: none;
     transition: 0.5s;
-  }
-  
-  .box .inputBox input:focus ~ label,
-  .box .inputBox input:valid ~ label,
-  .box .inputBox input:not([value=""]) ~ label {
+}
+
+.box .inputBox input:focus ~ label,
+.box .inputBox input:valid ~ label,
+.box .inputBox input:not([value=""]) ~ label {
     top: -1.125rem;
     left: 0;
     color: #03a9f4;
     font-size: 0.75rem;
-  }
-  
-  .box input[type="submit"] {
+}
+
+.box input[type="submit"] {
     width: 100%;
     border: none;
     outline: none;
@@ -220,28 +220,28 @@ h1 {
     cursor: pointer;
     border-radius: 0.312rem;
     font-size: 1rem;
-  }
-  
-  .box input[type="submit"]:hover {
+}
+
+.box input[type="submit"]:hover {
     background-color: #181f22;
-  }
+}
 
-  
-  .box .inputBox .file {
+
+.box .inputBox .file {
     color: white;
-  }
+}
 
-  .icon {
-	padding: 10px;
-	background: rgb(105, 123, 141);
-	color: white;
-	min-width: 50px;
-	text-align: center;
-  }
+.icon {
+    padding: 10px;
+    background: rgb(105, 123, 141);
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
 
-  @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
     .col-25, .col-75, input[type=submit] {
-      width: 100%;
-      margin-top: 0;
+        width: 100%;
+        margin-top: 0;
     }
-  }
+}

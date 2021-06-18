@@ -56,14 +56,14 @@
         
           <div class="type">
             <select name="selectype" id="selectType" class="form-selec" required>
-                <option value="saab">Sterilization</option>
-                <option value="micro" id="microchip">Microchip implantation</option>
-                <option value="audi" id="vac">Vaccination</option>
-                <option value="audi" id="dew">Deworming</option>
-                <option value="audi">Urgency</option>
-                <option value="audi">Control</option>   
+                <option value="sterilization">Sterilization</option>
+                <option value="microchip" id="microchip">Microchip implantation</option>
+                <option value="vaccination" id="vac">Vaccination</option>
+                <option value="deworming" id="dew">Deworming</option>
+                <option value="urgency">Urgency</option>
+                <option value="control">Control</option>
             </select>
-            <button onclick="" type="button" class="btn btn-primary">
+            <button onclick="tableVisit()" type="button" class="btn btn-primary">
               <i class="fas fa-search"></i>
             </button>
         </div>
@@ -75,23 +75,21 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Visit</th>
-            <th>Vet</th>
+            <th>VisitId</th>
+            <th>VetUser</th>
+            <th>descripcion</th>
+            <th>createAt</th>
             <th>Type</th>
         </tr>
         </thead>
         <tbody id="res">
-        <tr>
-            <td>ggg</td>
-            <td>hdhdhhd</td>
-            <td>hdhdhhd</td>
-        </tr>
+
         </tbody>
     </table>
 </div>
 <script>
 
-    document.getElementById("visit").onchange = function() {
+    document.getElementById("selectType").onchange = function() {
         if (this.value == 'micro') {
             var optionID=document.getElementById('microchip');
             alert(optionID.value);
@@ -102,6 +100,7 @@
 </script>
 
 <script src="js/formTable.js"></script>
+<script src="Js/ownerTable.js"></script>
 
 </body>
 
