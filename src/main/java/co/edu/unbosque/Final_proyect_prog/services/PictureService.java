@@ -19,7 +19,7 @@ public class PictureService {
     private OwnerImp ownerImp;
     private PetImp petImp;
     public void modify(String username, String url, String filename){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         pictureImp = new PictureImp(entityManager);

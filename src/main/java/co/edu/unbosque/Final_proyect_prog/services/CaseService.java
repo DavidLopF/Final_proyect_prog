@@ -21,7 +21,7 @@ public class CaseService {
 
     public boolean create(CasePOJO c){
         if(!c.getCreatedAt().isEmpty()&&!c.getDescription().isEmpty()&&!c.getCreatedAt().isEmpty()){
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             caseImp = new CaseImp(entityManager);
             PetCase caso = new PetCase(c.getCreatedAt(),c.getType(),c.getDescription(),c.getPet_id());
@@ -40,7 +40,7 @@ public class CaseService {
     }
 
     public List<PetCase> listCases(){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         caseImp = new CaseImp(entityManager);
         List<PetCase> petCases = caseImp.listAll();
@@ -49,7 +49,7 @@ public class CaseService {
     }
 
     public List<PetCasePOJO> listCasesByParam(String param){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         caseImp = new CaseImp(entityManager);
         List<PetCase> petCases = caseImp.listByParam(param);

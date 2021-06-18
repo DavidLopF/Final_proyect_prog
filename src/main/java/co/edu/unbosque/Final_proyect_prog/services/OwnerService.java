@@ -23,7 +23,7 @@ public class OwnerService{
     public boolean createOwner(UserAppPOJO user, String name, String address, String neight){
         if (!user.getUserName().isEmpty() && !user.getPassword().isEmpty()
                 && !user.getEmail().isEmpty() && !user.getRole().isEmpty()) {
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
             EntityManager entityManager = entityManagerFactory.createEntityManager();
 
             userAppImp = new UserAppImp(entityManager);

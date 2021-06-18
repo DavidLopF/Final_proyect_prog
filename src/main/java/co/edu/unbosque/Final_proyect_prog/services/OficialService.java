@@ -20,7 +20,7 @@ public class OficialService {
                 && !user.getEmail().isEmpty() && !user.getRole().isEmpty()
                 && !name.isEmpty()) {
 
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
             EntityManager entityManager = entityManagerFactory.createEntityManager();
 
             userAppRepository = new UserAppImp(entityManager);
