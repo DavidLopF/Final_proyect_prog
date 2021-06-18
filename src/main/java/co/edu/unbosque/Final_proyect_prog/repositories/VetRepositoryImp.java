@@ -17,6 +17,8 @@ public class VetRepositoryImp implements VetRepository {
     }
 
 
+
+
     @Override
     public Optional<Vet> findByUserName(String userName) {
         Vet vet = entityManager.find(Vet.class, userName);
@@ -35,6 +37,10 @@ public class VetRepositoryImp implements VetRepository {
             return false;
         }
 
+    }
+
+    public List<Vet> listAll(){
+        return entityManager.createQuery("from Vet ").getResultList();
     }
 
 

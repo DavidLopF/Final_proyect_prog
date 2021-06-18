@@ -108,6 +108,27 @@ public class VisitService {
         return visitPOJOS;
     }
 
+    public List<VisitPOJO> listByUsername(String username, String type){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        vetRepositoryImp = new VetRepositoryImp(entityManager);
+        List<Vet> vets = vetRepositoryImp.listAll();
+        List<VisitPOJO> pojos = new ArrayList<>();
+        for(Vet v:vets){
+            if(v.getUserApp().getUserName().equals(username)){
+                List<Visit> vesitVet = v.getVisits();
+                for(Visit vi: vesitVet){
+                    if(vi.getType().equalsIgnoreCase(type)){
+                        pojos.add(new VisitPOJO(vi.getVisitId(),vi.getCreateAt(),vi.getType(),vi.getDescripcion(),vi.getPet().getName_id(),vi.getVet().getUserApp().getUserName()));
+                    }
+                }
+            }
+        }
+        return pojos;
+
+    }
+
     public List<VisitPOJO> visitPOJOS(int pet_id, Date first, Date second) throws ParseException {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
         EntityManager entityManager = entityManagerFactory.createEntityManager();

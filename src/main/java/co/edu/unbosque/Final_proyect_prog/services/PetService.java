@@ -67,8 +67,13 @@ public class PetService {
         List<Pet> pets = petImp.listByUsername(username);
         List<PetPOJO> pojos = new ArrayList<>();
         for(Pet p:pets){
-            pojos.add(new PetPOJO(p.getName_id(),String.valueOf(p.getOwner_id()),p.getMicrochip(),p.getName(),p.getSpecies(),p.getRace(),p.getSize(),p.getSex(),p.getPicture()));
-        }
+            PetPOJO pojo = new PetPOJO(p.getName_id(),String.valueOf(p.getOwner_id()),p.getMicrochip(),p.getName(),p.getSpecies(),p.getRace(),p.getSize(),p.getSex(),p.getPicture());
+            if(petImp.haveSterilization(p.getName_id())){
+                pojo.setSterelized("Yes");
+            }else{
+                pojo.setSterelized("No");
+            }
+            pojos.add(pojo);        }
         return pojos;
     }
 

@@ -91,3 +91,52 @@ function createListener() {
 
 
 printTable();
+
+function selectVet(){
+    var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                var data = JSON.parse(xhr.responseText);
+                var tbodyRef = document.getElementById("selectVisits")
+                tbodyRef.innerHTML = ""
+
+                for (let i = 0; i < data.length; i++) {
+                    tbodyRef.innerHTML += `
+                <option value="${data[i].userName}">${data[i].name}</option>
+                `
+                }
+
+            }
+        }
+        xhr.open('GET', 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/vet/list', true);
+        xhr.send(null)
+}
+selectVet()
+
+function tableVisit(){
+    var username = document.getElementById("selectVisits").value
+    var type = document.getElementById("selectType").value
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        var data = JSON.parse(xhr.responseText);
+        var tbodyRef = document.getElementById("res")
+        tbodyRef.innerHTML = ""
+        for (let i = 0; i < data.length; i++) {
+            tbodyRef.innerHTML += `
+                <tr>
+                 <td>${data[i].visitId}</td>
+                <td>${data[i].vet_id}</td>
+                <td>${data[i].descripcion}</td>
+                <td>${data[i].createAt}</td>
+                <td>${data[i].type}</td>
+                </tr>
+                
+                `
+        }
+
+
+    }
+    xhr.open('GET', 'http://localhost:8080/Final_proyect_prog-1.0-SNAPSHOT/api/userApp/vet/visit/list/'+username+'/'+type, true);
+    xhr.send()
+
+}

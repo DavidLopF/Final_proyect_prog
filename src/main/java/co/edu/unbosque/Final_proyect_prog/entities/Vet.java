@@ -38,6 +38,8 @@ public class Vet implements Serializable {
 
     }
 
+
+
     public void addVisit(Visit visit) {
         visits.add(visit);
     }

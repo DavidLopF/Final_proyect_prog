@@ -2,11 +2,13 @@ package resources;
 
 import co.edu.unbosque.Final_proyect_prog.services.VetService;
 import resources.Pojos.UserAppPOJO;
+import resources.Pojos.VetPojo;
 import resources.filters.Logged;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.List;
 
 @Path("userApp/vet/")
 public class VetResource {
@@ -42,6 +44,20 @@ public class VetResource {
             return Response.ok().entity("Vet modificated succesfully").build();
         } else {
             return Response.status(Response.Status.FORBIDDEN).build();
+        }
+
+    }
+
+    @GET
+    @Path("/list")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response listVetsById(){
+        VetService vetService = new VetService();
+        List<VetPojo> pojos = vetService.listById();
+        if(pojos==null){
+            return Response.status(Response.Status.NOT_ACCEPTABLE).entity(null).build();
+        }else{
+            return Response.status(Response.Status.CREATED).entity(pojos).build();
         }
 
     }

@@ -6,10 +6,13 @@ import co.edu.unbosque.Final_proyect_prog.repositories.UserAppImp;
 import co.edu.unbosque.Final_proyect_prog.repositories.VetRepository;
 import co.edu.unbosque.Final_proyect_prog.repositories.VetRepositoryImp;
 import resources.Pojos.UserAppPOJO;
+import resources.Pojos.VetPojo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.ArrayList;
+import java.util.List;
 
 public class VetService {
 
@@ -56,6 +59,19 @@ public class VetService {
 
         }
         return flag;
+    }
+
+    public List<VetPojo> listById(){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        vetRepositoryImp = new VetRepositoryImp(entityManager);
+        List<Vet> vets = vetRepositoryImp.listAll();
+        List<VetPojo> pojos = new ArrayList<>();
+        for(Vet v: vets){
+            pojos.add(new VetPojo(v.getUserApp().getUserName(),v.getName(),v.getAddress(),v.getNeighborhood()));
+        }
+        return pojos;
     }
 
 }

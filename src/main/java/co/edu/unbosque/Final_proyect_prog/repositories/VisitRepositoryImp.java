@@ -13,6 +13,10 @@ public class VisitRepositoryImp implements VisitRepository {
         this.entityManager = entityManager;
     }
 
+    public List<Visit> listAllVisits(){
+        return entityManager.createQuery("from Visit ").getResultList();
+    }
+
 
     @Override
     public boolean save(Visit visit) {
