@@ -5,8 +5,16 @@ http.onreadystatechange = () => {
         var data = JSON.parse(http.responseText)
         console.log(data)
         var tbody = document.getElementById("res")
-
-
+        for (let i = 0; i < data.length; i++) {
+            tbody.innerHTML += `
+        <tr>
+            <td>${data[i].specie}</td>
+            <td>${data[i].race}</td>
+            <td>${data[i].size}</td>
+            <td>${data[i].sex}</td>
+            <td>${data[i].microship}</td>
+        </tr>`
+        }
     }
 }
 
