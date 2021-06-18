@@ -48,7 +48,7 @@ public class OwnerService{
     }
 
     public boolean modifyOwner(String username, String name,  String address, String neighborhood){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         ownerImp = new OwnerImp(entityManager);
         boolean bandera =ownerImp.modify(username,name,address,neighborhood);
@@ -58,7 +58,7 @@ public class OwnerService{
     }
 
     public List<OwnerPOJO> filterByNeight(){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         ownerImp = new OwnerImp(entityManager);
         List<Owner> owners = ownerImp.getAllOwner();
@@ -83,7 +83,7 @@ public class OwnerService{
     }
 
     public List<OwnerPOJO> listByNeigth(String neight){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         ownerImp = new OwnerImp(entityManager);
         List<Owner> owners = ownerImp.listByNeight(neight);

@@ -53,7 +53,7 @@ public class PetService {
     }
 
     public boolean modify(String name, long microchip, String size, String specie, String race, String sex, Integer id){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         petImp = new PetImp(entityManager);
         boolean bandera =petImp.modify(name,microchip,specie,size,race,sex,id);
@@ -61,7 +61,7 @@ public class PetService {
     }
 
     public List<PetPOJO> listPetsByUsername(String username){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         petImp = new PetImp(entityManager);
         List<Pet> pets = petImp.listByUsername(username);
@@ -81,7 +81,7 @@ public class PetService {
 
 
     public List<PetPOJO> listPets(String username) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         petImp = new PetImp(entityManager);
 
@@ -98,7 +98,7 @@ public class PetService {
     }
 
     public List<PetPOJO> listPetsByParameter(String param, String value){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         petImp = new PetImp(entityManager);
         List<Pet> pets = petImp.listByParameter(param,value);
@@ -110,7 +110,7 @@ public class PetService {
     }
 
     public List getByParameter(String param){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         petImp = new PetImp(entityManager);
        // List pets = petImp.getByParam(param);
@@ -119,7 +119,7 @@ public class PetService {
     }
 
     public List<PetPOJO> listAllPets() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         petImp = new PetImp(entityManager);
 
@@ -137,7 +137,7 @@ public class PetService {
 
 
     public List<PetPOJO> filterByParam(String param){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         petImp = new PetImp(entityManager);
         List<Pet> pets = petImp.findAll();
