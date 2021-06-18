@@ -27,7 +27,7 @@ public class VetService {
                 && !user.getEmail().isEmpty() && !user.getRole().isEmpty()
                 && !name.isEmpty() && !addres.isEmpty() && !neighborhood.isEmpty()) {
 
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             EntityManager entityManager2 = entityManagerFactory.createEntityManager();
 
@@ -48,7 +48,7 @@ public class VetService {
         boolean flag = false;
 
         if (!userName.isEmpty() && !addres.isEmpty() && !neighborhood.isEmpty()) {
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
             EntityManager entityManager = entityManagerFactory.createEntityManager();
 
             vetRepositoryImp = new VetRepositoryImp(entityManager);
@@ -62,7 +62,7 @@ public class VetService {
     }
 
     public List<VetPojo> listById(){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         vetRepositoryImp = new VetRepositoryImp(entityManager);

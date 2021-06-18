@@ -27,7 +27,7 @@ public class VisitService {
     public boolean createVisit(String vet_id, int pet_id, String description, String type, String createAt) {
 
         if (!description.isEmpty() && !type.isEmpty() && !createAt.isEmpty()) {
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
             EntityManager entityManager = entityManagerFactory.createEntityManager();
 
             visitRepositoryImp = new VisitRepositoryImp(entityManager);
@@ -60,7 +60,7 @@ public class VisitService {
 
     public boolean createVisitMicro(String vet_id, int pet_id, String description, String type, String createAt, long microchip) {
         if (!description.isEmpty() && !type.isEmpty() && !createAt.isEmpty()) {
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
             EntityManager entityManager = entityManagerFactory.createEntityManager();
 
             visitRepositoryImp = new VisitRepositoryImp(entityManager);
@@ -92,7 +92,7 @@ public class VisitService {
     }
 
     public List<VisitPOJO> visitsPet(int pet_id) {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         petImp = new PetImp(entityManager);
 
@@ -109,7 +109,7 @@ public class VisitService {
     }
 
     public List<VisitPOJO> listByUsername(String username, String type){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         vetRepositoryImp = new VetRepositoryImp(entityManager);
@@ -130,7 +130,7 @@ public class VisitService {
     }
 
     public List<VisitPOJO> visitPOJOS(int pet_id, Date first, Date second) throws ParseException {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
         EntityManager entityManager = entityManagerFactory.createEntityManager();
 
         petImp = new PetImp(entityManager);

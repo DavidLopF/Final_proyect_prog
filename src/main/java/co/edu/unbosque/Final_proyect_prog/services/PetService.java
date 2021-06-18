@@ -27,7 +27,7 @@ public class PetService {
     public boolean createPet(PicturePojo pojo, String name, long microship,
                              String specie, String race, String size, String sex, String username) {
         if (!pojo.getDate().isEmpty() && !pojo.getDescription().isEmpty() && !pojo.getNamePicture().isEmpty()) {
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("4Citycens_final_proyect");
+            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("HouseAppDS");
             EntityManager entityManager = entityManagerFactory.createEntityManager();
 
             pictureImp = new PictureImp(entityManager);
