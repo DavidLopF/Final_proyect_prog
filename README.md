@@ -10,6 +10,7 @@
 - David Leonardo, Lopez Forero.
 - Briannys Ahiram, Páez Monserrate. 
 - Sergio Eduardo, Peña Alméciga.
+- Jorge Andres, Ramírez Pérez.
 
 ### Project development ###
 ***
