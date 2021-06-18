@@ -4,17 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="shortcut icon" href="https://i.ibb.co/ckDdYBB/Ciudadados-de-4-Patas.png">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="css/FormOfficer.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script type="text/javascript" src="js/rangeDate.js"></script>
-    <title>Pets Table</title>
+    <title>Cases table</title>
 </head>
 
 <body>
@@ -25,8 +20,11 @@
     <img class="logo" src="https://i.ibb.co/ckDdYBB/Ciudadados-de-4-Patas.png" alt="logo">
     <nav>
         <ul class="nav_links">
-            <li><a href="funtionOfficer.html">Home</a></li>
-
+            <li><a href="funtionOfficial.html">Home</a></li>
+            <li><a href="visualizeOwner.html">Table Users</a></li>
+            <li><a href="allPets.html">Filter Pets</a></li>
+            <li><a href="visitsOfficial.html">Table Visit</a></li>
+            <li><a href="table.html">All Pets</a></li>
         </ul>
     </nav>
     <a class= "cta" href="contact.html"><button>Contact</button></a>
@@ -36,25 +34,22 @@
         </ul>
     </nav>
 </header>
-
 </nav>
 
 <div class="container">
     <form action="" class="form">
-        <h1 class="title">Types of Cases</h1>
-        <label for="filtrar" class="label"></label>
-        <label for="selectTipos" class="form-label">Selecciona Tipo de caso a buscar:
-            <br>
-            <select name="selectTypes" id="selectTipos" class="form-selec" required>
-                <option class="form-option"></option>
-                <option value="Stole" class="form-option">Stole</option>
-                <option value="Lost" class="form-option">Lost</option>
-                <option value="Death" class="form-option">Death</option>
-            </select></label>
-        <h2 class ="Info">According to the type the data will be filtered</h2>
-        <br>
+        <h1 class="title">All cases to type</h1>
+        <div>
+          <label for="">Select type to filter</label>
+          <select name="selectTypes" id="selectTipos" class="form-selec" required>
+            <option value="Stole" class="form-option">Stole</option>
+            <option value="Lost" class="form-option">Lost</option>
+            <option value="Death" class="form-option">Death</option>
+        </select>
         <button type="button" onclick="tableCases()" class="btn btn-primary">
             <i class="fas fa-search"></i>
+        </button>
+        </div>
     </form>
 </div>
 
