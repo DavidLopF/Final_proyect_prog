@@ -25,6 +25,6 @@ The development of our project is divided into a logical part (backend) and a gr
 The project is based on the data management of a kind of pets, you can manage 3 types of users, owners, veterinarians and officer, where each one has its functionality, the owners can create pets, update them and see all the pets that they own, the veterinarians can make visits to the pets, and the officers they can see different tables of owners, pets, visits made by veterinarians, basically being a pet data management
  - [Final project](https://docs.google.com/document/d/1-ieF9hwBS0oQFmjr6sTwQY8BnXwCeOYbsI-0SXE0eVI/edit)
  - [WebDev](https://webdev-elbosque.github.io/syllabus.html)
- - [Video](https://drive.google.com/file/d/1puX-M9e6ylSMq-MBajax6824xya6Pvp_/view?usp=sharing)
+ - [Video](https://drive.google.com/file/d/1D35dD1311YtjWtIeTnAQxDwUqUd3q6EO/view?usp=sharing)
 
 Repository Link: https://github.com/gitForDavidL/Final_proyect_prog.git
